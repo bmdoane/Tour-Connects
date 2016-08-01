@@ -2,15 +2,28 @@
 
 app.controller('LoginCtrl', function($scope, $location, AuthFactory) {
 
-	let vm = this;
+	// $scope.email = '';
+	// $scope.password = '';
 
-	vm.login = function() {
-		AuthFactory.authWithProvider()
+	$scope.login = function() {
+		console.log('click');
+		AuthFactory.authWithEmail($scope.email, $scope.password)
 			// Return of a promise
 	    .then(function(result) {
 	      $location.path("/myArtists");
-	      vm.$apply();
+	      $scope.$apply();
 			});
+	};
+
+	$scope.register = function() {
+		console.log('cluck');
+		AuthFactory.createWithEmail($scope.email, $scope.password)
+		.then(function(result) {
+			$location.path('/myArtists');
+			$scope.$apply();
+		}).catch(function(err) {
+      console.log(err);
+    });
 	};
 
 });
