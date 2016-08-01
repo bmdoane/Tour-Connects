@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tour Connects</title>
+	<link rel="stylesheet" href="lib/node_modules/materialize-css/dist/css/materialize.min.css">
+	<link rel="stylesheet" href="css/main.css">	
+</head>
+<body data-ng-app="Tour-Connects">
+
+	<div class="container">
+		<div data-ng-view></div>
+	</div>
+
+		<!-- Third Party  -->
+	<script src="lib/node_modules/jquery.2/node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="lib/node_modules/angular/angular.min.js"></script>
+	<script src="lib/node_modules/angular-route/angular-route.min.js"></script>
+	<script src="lib/node_modules/firebase/firebase.js"></script>
+	<script src="lib/node_modules/materialize-css/dist/js/materialize.min.js"></script>
+	<!-- Application Scripts -->
+	<script src="app/app.js"></script>
+	<!-- Controllers -->
+	<script src="app/controllers/NavCtrl.js"></script>
+	<script src="app/controllers/LoginCtrl.js"></script>
+	<!-- Values -->
+	<script src="app/values/FBCreds.js"></script>
+	<!-- Factories -->
+	<script src="app/factories/AuthFactory.js"></script>		
+</body>
+</html>
