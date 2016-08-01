@@ -1,4 +1,6 @@
-app.controller('MyArtistsCtrl', function($scope, $location) {
+"use strict";
+
+app.controller('MyArtistsCtrl', function($scope) {
 
 	console.log('HELLO');
 

@@ -18,9 +18,9 @@ app.config(function($routeProvider) {
 		templateUrl: 'partials/searchArtists.html',
 		controller: 'ArtSearchCtrl'
 	}).
-	when('viewArt', {
+	when('/viewArt', {
 		templateUrl: 'partials/viewArtists.html',
 		controller: 'ArtViewCtrl'
 	}).
-	otherwise('login');
+	otherwise('/login');
 });

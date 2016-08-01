@@ -1,4 +1,6 @@
-app.controller('ArtViewCtrl', function($scope, $location) {
+"use strict";
+
+app.controller('ArtViewCtrl', function($scope) {
 
 	console.log('HELLO, HELLO, HELLO');
 
