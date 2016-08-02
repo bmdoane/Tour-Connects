@@ -6,8 +6,8 @@ app.controller('NavCtrl', function($scope, $location) {
 	$scope.logout = function() {
 		firebase.auth().signOut()
 		.then(function() {
-			console.log("You out");
 			$location.url("/login");
+			console.log("You out");
 		});
 	};
 
@@ -31,6 +31,3 @@ app.controller('NavCtrl', function($scope, $location) {
 
 
 });
-
-// ng-if MyArtists show links for Artist Search and Logout
-// ng-if ArtistSearch show links for MyArtists and Logout

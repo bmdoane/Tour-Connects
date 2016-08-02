@@ -3,7 +3,38 @@
 	<div data-ng-include="'partials/nav.html'"></div>
 
 	<div class="container">
-		<h3>This is the myArtists page</h3>
+		<h3>My Artists</h3>
+<!-- 		This is what will be ng-hide/ng-show based on permission -->
+		<div class="inner-container">
+			<div id="venueContact">
+				<!-- Firebase user info -->
+				<h4>Venue:</h4>
+				<h5>Contact Info:</h5>
+					<ul>
+						<li>Phone:</li>
+						<li>Email:</li>
+						<li>Address:</li>
+					</ul>
+			</div><!-- contact -->
+			<div id="venueList">
+				<h4>Artist Riders</h4>				
+			</div><!-- venueList -->
+			
+<!-- 		This is what will be ng-hide/ng-show based on permission -->
+			<div id="artManContact">
+				<!-- Firebase user info -->
+				<h4>Artist Management:</h4>
+				<h5>Contact Info:</h5>
+					<ul>
+						<li>Phone:</li>
+						<li>Email:</li>
+						<li>Address:</li>
+					</ul>
+			</div><!-- contact -->
+			<div id="artManList">
+				<h4>Artist Riders</h4>				
+			</div><!-- venueList -->			
+		</div><!-- inner-container -->
 	</div>
 	
 </section>
