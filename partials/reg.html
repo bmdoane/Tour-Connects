@@ -22,7 +22,8 @@
         <div class="input-field col s6">
           <input type="checkbox" id="venueReg" />
       		<label for="venueReg">Venue</label> 
-          <input type="checkbox" id="amReg" />
+      		<!-- Change default value of newUser.isAdmin to true if checked -->
+          <input type="checkbox" id="amReg" ng-model="newUser.isAdmin" ng-true-value="true" />
       		<label for="amReg">Artist Management</label>       		
         </div>			       
       </div>
