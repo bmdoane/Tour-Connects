@@ -1,6 +1,8 @@
-app.controller('ArtSearchCtrl', function($scope, $location) {
+"use strict";
 
-	console.log('HELLO, HELLO');
+app.controller('ArtSearchCtrl', function() {
+
+	console.log('what');
 
 
 });

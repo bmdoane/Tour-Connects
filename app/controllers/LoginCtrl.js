@@ -6,7 +6,6 @@ app.controller('LoginCtrl', function($scope, $location, AuthFactory) {
 	// $scope.password = '';
 
 	$scope.login = function() {
-		console.log('click');
 		AuthFactory.authWithEmail($scope.email, $scope.password)
 			// Return of a promise
 	    .then(function(result) {

@@ -61,13 +61,15 @@ app.run(["$location", "FBCreds", "AuthFactory", function ($location, FBCreds, Au
   firebase.initializeApp(authConfig);
 
   // Get currently signed in user with observer on Auth Object
-  firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-      AuthFactory.setUser(user.uid);
-      $location.url("/myArtists");
-    } else {
-      $location.url("/login");
-      AuthFactory.setUser(null); //this is to reset the current user
-    }
-  });
+  // This is for a page refresh redirection
+  // Reinstate after logout functionality built
+  // firebase.auth().onAuthStateChanged(function (user) {
+  //   if (user) {
+  //     AuthFactory.setUser(user.uid);
+  //     $location.url("/myArtists");
+  //   } else {
+  //     $location.url("/login");
+  //     AuthFactory.setUser(null); //this is to reset the current user
+  //   }
+  // });
 }]);

@@ -1,0 +1,21 @@
+<nav ng-controller="NavCtrl">
+  <div class="nav-wrapper">
+    <div class="container">
+      <a href="#" class="brand-logo">Tour Connects</a>
+      <ul class="right hide-on-med-and-down">
+        <!-- All spans are showing appropriate links per view -->
+        <span ng-show="myArtistsLink()">
+          <li><a ng-href="#/searchArt">Artist Search</a></li>
+        </span>
+        <span ng-show="searchArtLink()">
+          <li><a ng-href="#/myArtists">My Artists</a></li>
+        </span>
+        <span ng-show="viewArtLinks()">
+          <li><a ng-href="#/searchArt">Artist Search</a></li>
+          <li><a ng-href="#/myArtists">My Artists</a></li>
+        </span>  
+        <li><a href="" ng-click="logout()">Logout</a></li>
+      </ul>  
+    </div>
+  </div>
+</nav>
