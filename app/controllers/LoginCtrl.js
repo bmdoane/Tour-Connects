@@ -15,14 +15,18 @@ app.controller('LoginCtrl', function($scope, $location, AuthFactory) {
 	};
 
 	$scope.register = function() {
-		console.log('cluck');
-		AuthFactory.createWithEmail($scope.email, $scope.password)
-		.then(function(result) {
-			$location.path('/myArtists');
-			$scope.$apply();
-		}).catch(function(err) {
-      console.log(err);
-    });
+		$location.path("/register");
 	};
+
+	// $scope.register = function() {
+	// 	console.log('cluck');
+	// 	AuthFactory.createWithEmail($scope.email, $scope.password)
+	// 	.then(function(result) {
+	// 		$location.path('/myArtists');
+	// 		$scope.$apply();
+	// 	}).catch(function(err) {
+ //      console.log(err);
+ //    });
+	// };
 
 });
