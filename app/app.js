@@ -10,6 +10,10 @@ app.config(function($routeProvider) {
 		templateUrl: 'partials/login.html',
 		controller: 'LoginCtrl'
 	}).
+	when('/register', {
+		templateUrl: 'partials/reg.html',
+		controller: 'RegCtrl'
+	}).
 	when('/myArtists', {
 		templateUrl: 'partials/myArtists.html',
 		controller: 'MyArtistsCtrl'
