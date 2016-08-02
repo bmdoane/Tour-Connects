@@ -2,9 +2,6 @@
 
 app.controller('LoginCtrl', function($scope, $location, AuthFactory) {
 
-	// $scope.email = '';
-	// $scope.password = '';
-
 	$scope.login = function() {
 		AuthFactory.authWithEmail($scope.email, $scope.password)
 			// Return of a promise
