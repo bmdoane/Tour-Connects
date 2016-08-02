@@ -2,17 +2,32 @@
 
 app.controller('NavCtrl', function($scope, $location) {
 
-	// Where do I console log to see if this works?
+	// Have to hit logout twice??
 	$scope.logout = function() {
 		firebase.auth().signOut()
 		.then(function() {
+			console.log("You out");
 			$location.url("/login");
 		});
 	};
 
-	$scope.linkPath = function() {
+	$scope.myArtistsLink = function() {
+		if ($location.url() === '/myArtists') {
+			return true;
+		}
+	};
 
-	}
+	$scope.searchArtLink = function() {
+		if ($location.url() === '/searchArt') {
+			return true;
+		}
+	};
+
+	$scope.viewArtLinks = function() {
+		if ($location.url() === '/viewArt') {
+			return true;
+		}
+	};
 
 
 });

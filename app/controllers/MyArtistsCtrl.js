@@ -2,7 +2,7 @@
 
 app.controller('MyArtistsCtrl', function($scope) {
 
-	console.log('HELLO');
+	console.log('$scope', $scope);
 
 
 });

@@ -3,14 +3,19 @@
     <div class="container">
       <a href="#" class="brand-logo">Tour Connects</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">1</a></li>
-        <li><a href="#" ng-click="logout()">Logout</a></li>
-      </ul>
-      <ul class="side-nav" id="mobile">
-        <h4>Tour Connects</h4>
-        <li><a href="#">1</a></li>
-        <li><a href="#" ng-click="logout()">Logout</a></li>
-      </ul>      
+        <!-- All spans are showing appropriate links per view -->
+        <span ng-show="myArtistsLink()">
+          <li><a ng-href="#/searchArt">Artist Search</a></li>
+        </span>
+        <span ng-show="searchArtLink()">
+          <li><a ng-href="#/myArtists">My Artists</a></li>
+        </span>
+        <span ng-show="viewArtLinks()">
+          <li><a ng-href="#/searchArt">Artist Search</a></li>
+          <li><a ng-href="#/myArtists">My Artists</a></li>
+        </span>  
+        <li><a href="" ng-click="logout()">Logout</a></li>
+      </ul>  
     </div>
   </div>
 </nav>
