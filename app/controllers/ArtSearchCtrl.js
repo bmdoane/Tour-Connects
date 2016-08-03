@@ -1,8 +1,11 @@
 "use strict";
 
-app.controller('ArtSearchCtrl', function() {
+app.controller('ArtSearchCtrl', function($scope, RidersFactory) {
 
-	console.log('what');
+	RidersFactory.getAllRidersFB()
+	.then(function(riderCollection) {
+		$scope.riders = riderCollection;
+	});
 
 
 });
