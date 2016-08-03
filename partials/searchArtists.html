@@ -3,7 +3,11 @@
 	<div data-ng-include="'partials/nav.html'"></div>
 
 	<div class="container">
-		<h3>This is the Search Artists page</h3>
+		<h3>Search Artists</h3>
+		<div ng-repeat="rider in riders">
+			<!-- Need to link Artist name to viewArt -->
+			<a ng-href="#/viewArt"> {{rider.name}} </a>
+		</div>
 	</div>
 
 </section>
