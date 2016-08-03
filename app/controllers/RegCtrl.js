@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('RegCtrl', function($scope, $location, AuthFactory) {
+app.controller('RegCtrl', function($scope, $location, AuthFactory, UserFactory) {
 
 	// Establish new user object
 	$scope.newUser = {
@@ -21,7 +21,7 @@ app.controller('RegCtrl', function($scope, $location, AuthFactory) {
 		console.log('cluck');
 		AuthFactory.createWithEmail($scope.newUser.email, $scope.password)
 		.then(function(result) {
-		AuthFactory.postUserFB($scope.newUser);			
+		UserFactory.postUserFB($scope.newUser);			
 		})
 		.then(function(result) {
 			$location.path('/myArtists');

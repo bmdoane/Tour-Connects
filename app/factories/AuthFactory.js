@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('AuthFactory', function(FirebaseURL, $q, $http) {
+app.factory('AuthFactory', function(FirebaseURL) {
 
   let currentUserId = null;
   let googleProvider = new firebase.auth.GoogleAuthProvider();
@@ -46,21 +46,8 @@ app.factory('AuthFactory', function(FirebaseURL, $q, $http) {
     });
   };
 
-  const postUserFB = function(newUser) {
-    return $q(function(resolve, reject) {
-      $http.post(`${FirebaseURL}/users.json`,
-        JSON.stringify(newUser))
-      .success(function() {
-        resolve();
-      })
-      .error(function(error) {
-        reject(error);
-      });
-    });
-  };
-
   return {
-    authWithProvider, isAuthenticated, getUser, setUser, googleProvider, createWithEmail, authWithEmail, postUserFB
+    authWithProvider, isAuthenticated, getUser, setUser, googleProvider, createWithEmail, authWithEmail
   };
 
 });
