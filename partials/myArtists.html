@@ -6,7 +6,7 @@
 		<h3>My Artists</h3>
 <!-- 		This is what will be ng-hide/ng-show based on permission -->
 		<div class="inner-container">
-			<div id="venueContact" ng-show="">
+			<div id="venueContact">
 				<!-- Firebase user info -->
 				<h4>Venue:</h4>
 				<h5>Contact Info:</h5>
@@ -17,12 +17,12 @@
 					</ul>
 			</div><!-- contact -->
 			<div id="venueList">
-				<h4>Artist Riders</h4>				
+				<h4>Artist Riders</h4>						
 			</div><!-- venueList -->
-			<a ng-href="/viewArt">Go to View Artist</a>
+			<a ng-href="#/viewArt">Go to View Artist</a>
 
 <!-- 		This is what will be ng-hide/ng-show based on permission -->
-			<div id="artManContact" ng-show="">
+			<div id="artManContact">
 				<!-- Firebase user info -->
 				<h4>Artist Management:</h4>
 				<h5>Contact Info:</h5>
@@ -33,9 +33,13 @@
 					</ul>
 			</div><!-- contact -->
 			<div id="artManList">
-				<h4>Artist Riders</h4>				
+				<h4>Artist Riders</h4>
+				<!-- This only comes up after viewArt -->
+				<div ng-repeat="rider in userRiders">
+					<a ng-href="#/viewArt"> {{rider.name}} </a>	
+				</div>				
 			</div><!-- venueList -->	
-			<a ng-href="/viewArt">Go to View Artist</a>		
+			<a ng-href="#/viewArt">Go to View Artist</a>		
 		</div><!-- inner-container -->
 	</div>
 	

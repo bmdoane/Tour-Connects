@@ -2,6 +2,8 @@
 
 app.factory('UserFactory', function(FirebaseURL, $q, $http) {
 
+  // Make get user details
+
   const postUserFB = function(newUser) {
     return $q(function(resolve, reject) {
       $http.post(`${FirebaseURL}/users.json`,
