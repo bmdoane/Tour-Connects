@@ -26,10 +26,13 @@ app.factory('UserFactory', function(FirebaseURL, $q, $http, AuthFactory) {
       .success(function(userObj) {
         console.log("userObj", userObj);
         let userCollection = userObj;
-        Object.keys(userCollection).forEach(function(key) {
-          userCollection[key].id = key;
-          details.push(userCollection[key]);
-        }); 
+        // If last item is deleted in object it does not return null
+        if (userCollection) {
+          Object.keys(userCollection).forEach(function(key) {
+            userCollection[key].id = key;
+            details.push(userCollection[key]);
+          }); 
+        }  
         console.log("details", details); 
         resolve(details);
       })

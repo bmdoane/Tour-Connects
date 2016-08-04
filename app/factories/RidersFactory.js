@@ -55,6 +55,34 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
     });
   };
 
-  return { getAllRidersFB, postRiderFB, getUserRiders };
+  // This has not been tested.  Call with function in ArtViewCtrl
+  const editRiderFB = function(riderId) {
+    return $q(function(resolve, reject) {
+      $http.put(`${FirebaseURL}/riders/${riderId}.json`)
+      .success(function() {
+        console.log("rider updated");
+        resolve();
+      })
+      .error(function(error) {
+        reject(error);
+      });
+    });
+  };
+
+  // This has not been tested.  Call with function in ArtViewCtrl
+  const deleteRiderFB = function(riderId) {
+    return $q(function(resolve, reject) {
+      $http.delete(`${FirebaseURL}/riders/${riderId}.json`)
+      .success(function() {
+        console.log("rider deleted");
+        resolve();
+      })
+      .error(function(error) {
+        reject(error);
+      });
+    });
+  };
+
+  return { getAllRidersFB, postRiderFB, getUserRiders, editRiderFB, deleteRiderFB };
 
 });

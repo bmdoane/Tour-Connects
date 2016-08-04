@@ -1,6 +1,8 @@
 "use strict";
 
-app.controller('MyArtistsCtrl', function($scope, UserFactory, RidersFactory, $timeout) {
+app.controller('MyArtistsCtrl', function($scope, UserFactory, RidersFactory, $timeout, $routeParams) {
+
+	$scope.selectedDetail = {};
 
 	// Timeout is to load user before it attempts to load their riders
 	$timeout(function() {
@@ -14,8 +16,15 @@ app.controller('MyArtistsCtrl', function($scope, UserFactory, RidersFactory, $ti
 	$timeout(function() {
 		UserFactory.getUserDetails()
 		.then(function(userDetails) {
-			$scope.currentUser = userDetails;
+			console.log("userDetails", userDetails);
+			$scope.currentUser = userDetails[0];
 			console.log("currentUser", $scope.currentUser);
+
+
+			// HOW DO I GET PARAMS TO WORK TO FILL FB USER INFO
+			// $scope.selectedDetail = $scope.currentUser.filter(function(detail) {
+			// 	return detail.id === $routeParams.usersId;
+			// })[0];
 		});
 	}, 50);	
 	
