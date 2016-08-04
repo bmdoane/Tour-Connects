@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('MyArtistsCtrl', function($scope, UserFactory, RidersFactory, $timeout) {
+app.controller('MyArtistsCtrl', function($scope, UserFactory, RidersFactory, $timeout, $location) {
 
 	// Timeout is to load user before it attempts to load their riders
 	$timeout(function() {
@@ -18,6 +18,10 @@ app.controller('MyArtistsCtrl', function($scope, UserFactory, RidersFactory, $ti
 			$scope.currentUser = userDetails[0];
 			console.log("currentUser", $scope.currentUser);
 		});
-	}, 50);	
+	}, 50);
+
+	$scope.goCreate = function() {
+		$location.url('#/viewArt');
+	};	
 	
 });

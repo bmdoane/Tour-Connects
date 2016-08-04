@@ -7,7 +7,7 @@ app.controller('NavCtrl', function($scope, $location) {
 		firebase.auth().signOut()
 		.then(function() {
 			$location.url("/login");
-			// This keeps you from having to hit logout twice
+			// This keeps you from having to hit logout btn twice
 			$scope.$apply();
 			console.log("You out");
 		});
@@ -25,8 +25,10 @@ app.controller('NavCtrl', function($scope, $location) {
 		}
 	};
 
+	// Path in appConfig includes routeParams which broke $location.url() === path
+	// indexOf looks for (is this included) returning value greater than -1 
 	$scope.viewArtLinks = function() {
-		if ($location.url() === '/viewArt') {
+		if ($location.url().indexOf('/viewArt') > -1) {
 			return true;
 		}
 	};
