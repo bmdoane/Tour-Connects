@@ -117,101 +117,102 @@
  
 
       <div id="read">
+        <!-- Will need to color text and disable form border color -->
         <div class="row">
         <form class="col s12" name="editForm">
           <div class="row">
             <div class="input-field col s6">
-              <input ng-model="rider.name" id="artist" type="text" class="validate" tabindex="0" autofocus="true">
+              <input id="artist" type="text" class="validate" value="{{currentRider.name}}" ng-readonly="true">
               <label class="active" for="artist">Artist:</label>
             </div>
             <div class="input-field col s6">
-              <input ng-model="rider.genre" id="genre" type="text" class="validate">
+              <input id="genre" type="text" class="validate" value="{{currentRider.genre}}" ng-readonly="true">
               <label class="active" for="genre">Genre:</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s6">
-              <input ng-model="rider.riderDate" id="riderDate" type="text" class="validate">
+              <input id="riderDate" type="text" class="validate" value="{{currentRider.riderDate}}" ng-readonly="true">
               <label class="active" for="date">Date:</label>
             </div>
             <div class="input-field col s6">
-              <input ng-model="rider.tourContact" id="tourContact" type="text" class="validate">
+              <input id="tourContact" type="text" class="validate" value="{{currentRider.tourContact}}" ng-readonly="true">
               <label class="active" for="contact">Tour Contact</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s6">
-              <input ng-model="rider.phone" id="phone" type="text" class="validate">
+              <input id="phone" type="text" class="validate" value="{{currentRider.phone}}" ng-readonly="true">
               <label class="active" for="phone">Phone:</label>
             </div>
             <div class="input-field col s6">
-              <input ng-model="rider.email" id="email" type="text" class="validate">
+              <input id="email" type="text" class="validate" value="{{currentRider.email}}" ng-readonly="true">
               <label class="active" for="email">Email:</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <textarea ng-model="rider.lodging" id="lodging" class="materialize-textarea"></textarea>
+              <textarea id="lodging" class="materialize-textarea"  value="{{currentRider.lodging}}" ng-readonly="true"></textarea>
               <label class="active" for="lodging">Lodging:</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <textarea ng-model="rider.backline" id="backline" class="materialize-textarea"></textarea>
+              <textarea id="backline" class="materialize-textarea" value="{{currentRider.backline}}" ng-readonly="true"></textarea>
               <label class="active" for="backline">Backline:</label>
             </div>
           </div> 
           <div class="row">
             <div class="input-field col s12">
-              <textarea ng-model="rider.audio" id="audio" class="materialize-textarea"></textarea>
+              <textarea id="audio" class="materialize-textarea" value="{{currentRider.audio}}" ng-readonly="true"></textarea>
               <label class="active" for="audio">Audio:</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <textarea ng-model="rider.lighting" id="lighting" class="materialize-textarea"></textarea>
+              <textarea id="lighting" class="materialize-textarea" value="{{currentRider.lighting}}" ng-readonly="true"></textarea>
               <label class="active" for="lighting">Lighting:</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <textarea ng-model="rider.stage" id="stage" class="materialize-textarea"></textarea>
+              <textarea id="stage" class="materialize-textarea" value="{{currentRider.stage}}" ng-readonly="true"></textarea>
               <label class="active" for="stage">Stage:</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <textarea ng-model="rider.schedule" id="schedule" class="materialize-textarea"></textarea>
+              <textarea id="schedule" class="materialize-textarea" value="{{currentRider.schedule}}" ng-readonly="true"></textarea>
               <label class="active" for="schedule">Schedule:</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <textarea ng-model="rider.showRun" id="showRun" class="materialize-textarea"></textarea>
+              <textarea id="showRun" class="materialize-textarea" value="{{currentRider.showRun}}" ng-readonly="true"></textarea>
               <label class="active" for="showRun">Show Run:</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <textarea ng-model="rider.dressingRoom" id="dressingRoom" class="materialize-textarea"></textarea>
+              <textarea id="dressingRoom" class="materialize-textarea" value="{{currentRider.dressingRoom}}" ng-readonly="true"></textarea>
               <label class="active" for="dressingRoom">Dressing Room:</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <textarea ng-model="rider.catering" id="catering" class="materialize-textarea"></textarea>
+              <textarea id="catering" class="materialize-textarea" value="{{currentRider.catering}}" ng-readonly="true"></textarea>
               <label class="active" for="catering">Catering:</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <textarea ng-model="rider.security" id="security" class="materialize-textarea"></textarea>
+              <textarea id="security" class="materialize-textarea" value="{{currentRider.security}}" ng-readonly="true"></textarea>
               <label class="active" for="security">Security:</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <textarea ng-model="rider.tickets" id="tickets" class="materialize-textarea"></textarea>
+              <textarea id="tickets" class="materialize-textarea" value="{{currentRider.tickets}}" ng-readonly="true"></textarea>
               <label class="active" for="tickets">Tickets:</label>
             </div>
           </div>
