@@ -43,6 +43,7 @@ app.controller('ArtViewCtrl', function($scope, $location, AuthFactory, RidersFac
 		$scope.currentRider = riderObj;
 	});
 
+	// Not sure if I need here
 	UserFactory.getUserDetails()
 	.then(function(userDetails) {
 		console.log("userDetails", userDetails);
