@@ -24,6 +24,7 @@
 						<a ng-href="#/viewArt/{{rider.id}}"> {{rider.name}} </a>	
 					</div>												
 				</div><!-- venueList -->
+				<!-- Will need to rework link for click to specific view -->
 				<a ng-href="#/viewArt">Go to View Artist</a>
 			</div> <!-- venueLook -->
 
@@ -43,10 +44,11 @@
 				<div id="artManList">
 					<h4>Artist Riders</h4>
 					<div ng-repeat="rider in userRiders">
-						<a ng-href="#/viewArt/{{rider.id}}"> {{rider.name}} </a>	
+						<!-- Will need to rework link for click to specific view -->
+						<span><a ng-href="#/viewArt/{{rider.id}}"> {{rider.name}} </a><button>Edit</button></span>
 					</div>				
 				</div><!-- artManList -->	
-				<a ng-href="#/viewArt">Go to View Artist</a>
+				<button ng-click="showCreate()">Create Rider</button>
 			</div> <!-- artManLook -->
 			
 

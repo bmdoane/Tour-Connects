@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('ArtViewCtrl', function($scope, $location, AuthFactory, RidersFactory, $routeParams) {
+app.controller('ArtViewCtrl', function($scope, $location, AuthFactory, RidersFactory, $routeParams, UserFactory) {
 
 	$scope.rider = {
 		// Changed name from viewArtist.html input.  Revisit..
@@ -21,6 +21,7 @@ app.controller('ArtViewCtrl', function($scope, $location, AuthFactory, RidersFac
 		catering: "",
 		security: "",
 		tickets: "",
+		// addRider() places creator's uid, tying them to rider
 		uid: ""
 	};
 
@@ -36,10 +37,17 @@ app.controller('ArtViewCtrl', function($scope, $location, AuthFactory, RidersFac
 		});
 	};
 
-	// Routeparams prop can be any namespace
+	// Routeparams prop can be any namespace, just needs to match app.config
 	RidersFactory.getRiderFB($routeParams.riderId)
 	.then(function(riderObj) {
 		$scope.currentRider = riderObj;
+	});
+
+	UserFactory.getUserDetails()
+	.then(function(userDetails) {
+		console.log("userDetails", userDetails);
+		$scope.currentUser = userDetails[0];
+		console.log("viewArtCurrentUser", $scope.currentUser);
 	});
 
 });
