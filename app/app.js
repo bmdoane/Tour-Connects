@@ -22,7 +22,7 @@ app.config(function($routeProvider) {
 		templateUrl: 'partials/searchArtists.html',
 		controller: 'ArtSearchCtrl'
 	}).
-	when('/viewArt', {
+	when('/viewArt/:riderId', {
 		templateUrl: 'partials/viewArtist.html',
 		controller: 'ArtViewCtrl'
 	}).

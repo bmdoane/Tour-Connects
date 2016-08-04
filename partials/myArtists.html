@@ -21,7 +21,7 @@
 				<div id="venueList">
 					<h4>Artist Riders</h4>
 					<div ng-repeat="rider in userRiders">
-						<a ng-href="#/viewArt"> {{rider.name}} </a>	
+						<a ng-href="#/viewArt/{{rider.id}}"> {{rider.name}} </a>	
 					</div>												
 				</div><!-- venueList -->
 				<a ng-href="#/viewArt">Go to View Artist</a>
@@ -43,7 +43,7 @@
 				<div id="artManList">
 					<h4>Artist Riders</h4>
 					<div ng-repeat="rider in userRiders">
-						<a ng-href="#/viewArt"> {{rider.name}} </a>	
+						<a ng-href="#/viewArt/{{rider.id}}"> {{rider.name}} </a>	
 					</div>				
 				</div><!-- artManList -->	
 				<a ng-href="#/viewArt">Go to View Artist</a>
