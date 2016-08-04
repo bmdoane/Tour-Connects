@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('ArtCreateCtrl', function($scope, $location, AuthFactory, RidersFactory) {
+app.controller('ArtCreateCtrl', function($scope, $location, AuthFactory, RidersFactory, UserFactory) {
 
 	$scope.rider = {
 		// Changed name from viewArtist.html input.  Revisit..
@@ -35,6 +35,14 @@ app.controller('ArtCreateCtrl', function($scope, $location, AuthFactory, RidersF
 		.then(function() {
 			$location.url("/myArtists");
 		});
-	};	
+	};
+
+	// for isAdmin?  Do I need now?
+	UserFactory.getUserDetails()
+	.then(function(userDetails) {
+		console.log("userDetails", userDetails);
+		$scope.currentUser = userDetails[0];
+		console.log("viewArtCurrentUser", $scope.currentUser);
+	});	
 
 });

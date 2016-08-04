@@ -26,5 +26,14 @@ app.config(function($routeProvider) {
 		templateUrl: 'partials/viewArtist.html',
 		controller: 'ArtViewCtrl'
 	}).
+	when('/artEdit/:riderId', {
+		templateUrl: 'partials/artEdit.html',
+		controller: 'ArtEditCtrl'
+	}).
+	when('/createRider', {
+		templateUrl: 'partials/createRider.html',
+		controller: 'ArtCreateCtrl'
+	}).	
 	otherwise('/login');
+	
 });
