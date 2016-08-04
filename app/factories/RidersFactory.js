@@ -23,8 +23,8 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
   };
 
   const getUserRiders = function() {
-    let userId = AuthFactory.getUser();
-    console.log("userId", userId);
+    let userId = AuthFactory.getUser().uid;
+    console.log("RidersUserId", userId);
     let userRiders = [];
     return $q(function(resolve, reject) {
       $http.get(`${FirebaseURL}/riders.json?orderBy="uid"&equalTo="${userId}"`)
