@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('ArtViewCtrl', function($scope, $location, AuthFactory, RidersFactory) {
+app.controller('ArtViewCtrl', function($scope, $location, AuthFactory, RidersFactory, $routeParams) {
 
 	$scope.rider = {
 		// Changed name from viewArtist.html input.  Revisit..
@@ -35,5 +35,11 @@ app.controller('ArtViewCtrl', function($scope, $location, AuthFactory, RidersFac
 			$location.url("/myArtists");
 		});
 	};
+
+	// Routeparams prop can be any namespace
+	RidersFactory.getRiderFB($routeParams.riderId)
+	.then(function(riderObj) {
+		$scope.currentRider = riderObj;
+	});
 
 });

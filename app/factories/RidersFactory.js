@@ -36,12 +36,26 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
         });
         resolve(userRiders);
       })
-      .error(function(error){
+      .error(function(error) {
         reject(error);
       });
     });
   };
 
+  // To use for rider links to viewArtist
+  const getRiderFB = function(riderId) {
+    return $q(function(resolve, reject) {
+      $http.get(`${FirebaseURL}/riders/${riderId}.json`)
+      .success(function(riderObj) {
+        resolve(riderObj);
+      })
+      .error(function(error) {
+        reject(error);
+      });
+    });
+  };
+
+  // For Art Man to create riders
   const postRiderFB = function(newRider) {
     return $q(function(resolve, reject) {
       $http.post(`${FirebaseURL}/riders.json`,
@@ -83,6 +97,6 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
     });
   };
 
-  return { getAllRidersFB, postRiderFB, getUserRiders, editRiderFB, deleteRiderFB };
+  return { getAllRidersFB, getUserRiders, getRiderFB, postRiderFB,  editRiderFB, deleteRiderFB };
 
 });
