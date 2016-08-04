@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('AuthFactory', function(FirebaseURL) {
+app.factory('AuthFactory', function() {
 
   let currentUserId = null;
   let googleProvider = new firebase.auth.GoogleAuthProvider();
@@ -64,7 +64,8 @@ app.run(["$location", "FBCreds", "AuthFactory", function ($location, FBCreds, Au
   // This is for a page refresh redirection
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-      AuthFactory.setUser(user.uid);
+      //Setting user to the whole user object
+      AuthFactory.setUser(user);
       $location.url("/myArtists");
     } else {
       $location.url("/login");

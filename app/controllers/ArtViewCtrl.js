@@ -28,7 +28,7 @@ app.controller('ArtViewCtrl', function($scope, $location, AuthFactory, RidersFac
 	$scope.addRider = function() {
 		console.log("addRiderFired");
 		// add user id to new Board obj
-		$scope.rider.uid = AuthFactory.getUser();
+		$scope.rider.uid = AuthFactory.getUser().uid;
 		// run post function to firebase
 		RidersFactory.postRiderFB($scope.rider)
 		.then(function() {

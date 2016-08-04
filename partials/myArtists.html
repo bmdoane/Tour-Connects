@@ -4,38 +4,52 @@
 
 	<div class="container">
 		<h3>My Artists</h3>
-<!-- 		This is what will be ng-hide/ng-show based on permission -->
 		<div class="inner-container">
-			<div id="venueContact" ng-show="">
-				<!-- Firebase user info -->
-				<h4>Venue:</h4>
-				<h5>Contact Info:</h5>
-					<ul>
-						<li>Phone:</li>
-						<li>Email:</li>
-						<li>Address:</li>
-					</ul>
-			</div><!-- contact -->
-			<div id="venueList">
-				<h4>Artist Riders</h4>				
-			</div><!-- venueList -->
-			<a ng-href="/viewArt">Go to View Artist</a>
 
-<!-- 		This is what will be ng-hide/ng-show based on permission -->
-			<div id="artManContact" ng-show="">
-				<!-- Firebase user info -->
-				<h4>Artist Management:</h4>
-				<h5>Contact Info:</h5>
-					<ul>
-						<li>Phone:</li>
-						<li>Email:</li>
-						<li>Address:</li>
-					</ul>
-			</div><!-- contact -->
-			<div id="artManList">
-				<h4>Artist Riders</h4>				
-			</div><!-- venueList -->	
-			<a ng-href="/viewArt">Go to View Artist</a>		
+
+		  <div id="venueLook" ng-show="!currentUser.isAdmin">
+				<div id="venueContact">
+					<!-- Firebase user info -->
+					<h4>Venue: {{ currentUser.company }}</h4>
+					<h5>Contact Info:</h5>
+						<ul>
+							<li>Phone: {{ currentUser.phone }}</li>
+							<li>Email: {{ currentUser.email }}</li>
+							<li>Address: {{ currentUser.address }}</li>
+						</ul>
+				</div><!-- contact -->
+				<div id="venueList">
+					<h4>Artist Riders</h4>
+					<div ng-repeat="rider in userRiders">
+						<a ng-href="#/viewArt"> {{rider.name}} </a>	
+					</div>												
+				</div><!-- venueList -->
+				<a ng-href="#/viewArt">Go to View Artist</a>
+			</div> <!-- venueLook -->
+
+
+			<div id="artManLook" ng-show="currentUser.isAdmin"> 
+				<div id="artManContact">
+					<!-- Firebase user info -->
+
+					<h4>Artist Management: {{ currentUser.company }}</h4>
+					<h5>Contact Info:</h5>
+						<ul>
+							<li>Phone: {{ currentUser.phone }}</li>
+							<li>Email: {{ currentUser.email }}</li>
+							<li>Address: {{ currentUser.address }}</li>
+						</ul>
+				</div><!-- contact -->
+				<div id="artManList">
+					<h4>Artist Riders</h4>
+					<div ng-repeat="rider in userRiders">
+						<a ng-href="#/viewArt"> {{rider.name}} </a>	
+					</div>				
+				</div><!-- artManList -->	
+				<a ng-href="#/viewArt">Go to View Artist</a>
+			</div> <!-- artManLook -->
+			
+
 		</div><!-- inner-container -->
 	</div>
 	

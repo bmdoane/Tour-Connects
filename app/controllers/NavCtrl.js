@@ -7,6 +7,8 @@ app.controller('NavCtrl', function($scope, $location) {
 		firebase.auth().signOut()
 		.then(function() {
 			$location.url("/login");
+			// This keeps you from having to hit logout twice
+			$scope.$apply();
 			console.log("You out");
 		});
 	};
