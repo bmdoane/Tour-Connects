@@ -1,18 +1,28 @@
 "use strict";
 
-app.controller('ArtEditCtrl', function($scope, RidersFactory, $routeParams) {
+app.controller('ArtEditCtrl', function($scope, RidersFactory, $routeParams, $location) {
 
 	RidersFactory.getRiderFB($routeParams.riderId)
 	.then(function(riderObj) {
+		console.log("riderObj", riderObj);
 		$scope.currentRider = riderObj;
 	});
 
-	// Not sure if I need here.  Add args if needed up top.
-	// UserFactory.getUserDetails()
-	// .then(function(userDetails) {
-	// 	console.log("userDetails", userDetails);
-	// 	$scope.currentUser = userDetails[0];
-	// 	console.log("viewArtCurrentUser", $scope.currentUser);
-	// });	
+	$scope.update = function() {
+		RidersFactory.editRiderFB($routeParams.riderId)
+		.then(function(result) {
+			console.log("update result", result);
+			$location.url('/myArtists');
+		});
+	};
+
+	$scope.delete = function() {
+		console.log("$routeParams.riderId", $routeParams.riderId);
+		RidersFactory.deleteRiderFB($routeParams.riderId)
+		.then(function(result) {
+			console.log("delete result", result);
+			$location.url('/myArtists');
+		});
+	};		
 
 });

@@ -44,8 +44,9 @@
 				<div id="artManList">
 					<h4>Artist Riders</h4>
 					<div ng-repeat="rider in userRiders">
-						<!-- Will need to rework link for click to specific view -->
-						<span><a ng-href="#/viewArt/{{rider.id}}"> {{rider.name}} </a><button>Edit</button></span>
+						<!-- Look at reworking buttons to ng-click -->
+						<a ng-href="#/viewArt/{{rider.id}}"> {{rider.name}} </a>
+						<a ng-href="#/artEdit/{{rider.id}}/edit"><button>Edit</button></a>
 					</div>				
 				</div><!-- artManList -->	
 				<a ng-href="#/createRider"><button>Create Rider</button></a>

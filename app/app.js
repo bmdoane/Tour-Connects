@@ -26,7 +26,7 @@ app.config(function($routeProvider) {
 		templateUrl: 'partials/viewArtist.html',
 		controller: 'ArtViewCtrl'
 	}).
-	when('/artEdit/:riderId', {
+	when('/artEdit/:riderId/edit', {
 		templateUrl: 'partials/artEdit.html',
 		controller: 'ArtEditCtrl'
 	}).
@@ -35,5 +35,5 @@ app.config(function($routeProvider) {
 		controller: 'ArtCreateCtrl'
 	}).	
 	otherwise('/login');
-	
+
 });

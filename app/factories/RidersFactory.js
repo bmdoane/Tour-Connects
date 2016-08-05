@@ -24,7 +24,7 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
 
   const getUserRiders = function() {
     let userId = AuthFactory.getUser().uid;
-    console.log("RidersUserId", userId);
+    console.log("getUserRiders", userId);
     let userRiders = [];
     return $q(function(resolve, reject) {
       $http.get(`${FirebaseURL}/riders.json?orderBy="uid"&equalTo="${userId}"`)
@@ -44,6 +44,7 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
 
   // To use for rider links to viewArtist
   const getRiderFB = function(riderId) {
+    console.log("getFB riderId", riderId);
     return $q(function(resolve, reject) {
       $http.get(`${FirebaseURL}/riders/${riderId}.json`)
       .success(function(riderObj) {
@@ -73,9 +74,9 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
   const editRiderFB = function(riderId) {
     return $q(function(resolve, reject) {
       $http.put(`${FirebaseURL}/riders/${riderId}.json`)
-      .success(function() {
+      .success(function(riderObj) {
         console.log("rider updated");
-        resolve();
+        resolve(riderObj);
       })
       .error(function(error) {
         reject(error);
@@ -85,6 +86,7 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
 
   // This has not been tested.  Call with function in ArtViewCtrl
   const deleteRiderFB = function(riderId) {
+    console.log("delFB", riderId);
     return $q(function(resolve, reject) {
       $http.delete(`${FirebaseURL}/riders/${riderId}.json`)
       .success(function() {
@@ -97,6 +99,6 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
     });
   };
 
-  return { getAllRidersFB, getUserRiders, getRiderFB, postRiderFB,  editRiderFB, deleteRiderFB };
+  return { getAllRidersFB, getUserRiders, getRiderFB, postRiderFB, editRiderFB, deleteRiderFB };
 
 });
