@@ -70,10 +70,11 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
     });
   };
 
-  // This has not been tested.  Call with function in ArtViewCtrl
-  const editRiderFB = function(riderId) {
+  // $http.put requires arguments of the object as well as the keyId 
+  const editRiderFB = function(updatedRider, riderId) {
     return $q(function(resolve, reject) {
-      $http.put(`${FirebaseURL}/riders/${riderId}.json`)
+      $http.put(`${FirebaseURL}/riders/${riderId}.json`,
+        updatedRider)
       .success(function(riderObj) {
         console.log("rider updated");
         resolve(riderObj);
@@ -82,9 +83,8 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
         reject(error);
       });
     });
-  };
+  };  
 
-  // This has not been tested.  Call with function in ArtViewCtrl
   const deleteRiderFB = function(riderId) {
     console.log("delFB", riderId);
     return $q(function(resolve, reject) {

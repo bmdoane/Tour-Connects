@@ -8,8 +8,9 @@ app.controller('ArtEditCtrl', function($scope, RidersFactory, $routeParams, $loc
 		$scope.currentRider = riderObj;
 	});
 
+  // keyId comes from firebase and the currentRider is returned object
 	$scope.update = function() {
-		RidersFactory.editRiderFB($routeParams.riderId)
+		RidersFactory.editRiderFB($scope.currentRider, $routeParams.riderId)
 		.then(function(result) {
 			console.log("update result", result);
 			$location.url('/myArtists');
