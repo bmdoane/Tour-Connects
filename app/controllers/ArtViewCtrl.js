@@ -5,6 +5,7 @@ app.controller('ArtViewCtrl', function($scope, RidersFactory, $routeParams) {
 	// Routeparams prop can be any namespace, just needs to match app.config
 	RidersFactory.getRiderFB($routeParams.riderId)
 	.then(function(riderObj) {
+		console.log("ArtViewRiderObj", riderObj);
 		$scope.currentRider = riderObj;
 	});
 

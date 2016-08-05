@@ -4,7 +4,7 @@ app.controller('ArtEditCtrl', function($scope, RidersFactory, $routeParams, $loc
 
 	RidersFactory.getRiderFB($routeParams.riderId)
 	.then(function(riderObj) {
-		console.log("riderObj", riderObj);
+		console.log("editRiderObj", riderObj);
 		$scope.currentRider = riderObj;
 	});
 
