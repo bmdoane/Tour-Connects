@@ -8,6 +8,7 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
       $http.get(`${FirebaseURL}/riders.json`)
       .success(function(ridersObj) {
         let riderCollection = ridersObj;
+        console.log("GETriderCollection", riderCollection);
         Object.keys(riderCollection).forEach(function(key) {
           riderCollection[key].id = key;
           console.log("riderCollection[key]", riderCollection[key]);
@@ -24,7 +25,7 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
 
   const getUserRiders = function() {
     let userId = AuthFactory.getUser().uid;
-    console.log("getUserRiders", userId);
+    // console.log("getUserRiders", userId);
     let userRiders = [];
     return $q(function(resolve, reject) {
       $http.get(`${FirebaseURL}/riders.json?orderBy="uid"&equalTo="${userId}"`)
@@ -76,7 +77,7 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
       $http.put(`${FirebaseURL}/riders/${riderId}.json`,
         updatedRider)
       .success(function(riderObj) {
-        console.log("rider updated");
+        // console.log("rider updated");
         resolve(riderObj);
       })
       .error(function(error) {
@@ -90,7 +91,7 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
     return $q(function(resolve, reject) {
       $http.delete(`${FirebaseURL}/riders/${riderId}.json`)
       .success(function() {
-        console.log("rider deleted");
+        // console.log("rider deleted");
         resolve();
       })
       .error(function(error) {
