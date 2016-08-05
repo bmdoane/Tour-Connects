@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('ArtCreateCtrl', function($scope, $location, AuthFactory, RidersFactory) {
+app.controller('ArtCreateCtrl', function($scope, $location, AuthFactory, RidersFactory, UserFactory) {
 
 	$scope.rider = {
 		// Changed name from viewArtist.html input.  Revisit..
@@ -33,8 +33,16 @@ app.controller('ArtCreateCtrl', function($scope, $location, AuthFactory, RidersF
 		// run post function to firebase
 		RidersFactory.postRiderFB($scope.rider)
 		.then(function() {
-			$location.url("/myArtists");
+			$location.url('/myArtists');
 		});
-	};	
+	};
+
+	// for isAdmin?  Do I need now? Want to put any user info on page?
+	UserFactory.getUserDetails()
+	.then(function(userDetails) {
+		console.log("userDetails", userDetails);
+		$scope.currentUser = userDetails[0];
+		console.log("viewCreateCurrentUser", $scope.currentUser);
+	});	
 
 });
