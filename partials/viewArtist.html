@@ -3,7 +3,7 @@
   <div class="container">    
     <div id="read">
       <h3>Artist View</h3>
-      <div class="row">
+      <!-- <div class="row"> -->
         <form class="col s12" name="editForm">
           <div class="row">
             <div class="input-field col s6">
@@ -102,7 +102,12 @@
             </div>
           </div>
         </form>
-      </div> 
+        <!-- Possibly move this to top -->
+        <!-- Show this button on !isAdmin viewArtist.html.   -->
+        <div ng-show="currentUser.isAdmin === false">
+          <button ng-click="addVenToRider(currentUser.uid)">Add</button>
+        </div>
+      <!-- </div>  -->
     </div>    
   </div> <!-- container -->
 </section>	

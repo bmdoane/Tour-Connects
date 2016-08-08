@@ -8,11 +8,11 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
       $http.get(`${FirebaseURL}/riders.json`)
       .success(function(ridersObj) {
         let riderCollection = ridersObj;
-        console.log("GETriderCollection", riderCollection);
+        // console.log("GETriderCollection", riderCollection);
         Object.keys(riderCollection).forEach(function(key) {
           riderCollection[key].id = key;
-          console.log("riderCollection[key]", riderCollection[key]);
-          console.log("riderCollection[key].id", riderCollection[key].id);
+          // console.log("riderCollection[key]", riderCollection[key]);
+          // console.log("riderCollection[key].id", riderCollection[key].id);
           riderList.push(riderCollection[key]);
         });
         resolve(riderList);
