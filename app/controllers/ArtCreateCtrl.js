@@ -22,7 +22,9 @@ app.controller('ArtCreateCtrl', function($scope, $location, AuthFactory, RidersF
 		security: "",
 		tickets: "",
 		// addRider() places creator's uid, tying them to rider
-		uid: ""
+		uid: "",
+		// Need to instantuate this property like addRider does for uid
+		venues: ["test"]
 	};
 
 	// Think I need to have a promise return where I push rider into Art Man Array

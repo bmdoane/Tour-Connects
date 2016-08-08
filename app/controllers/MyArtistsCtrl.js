@@ -3,6 +3,7 @@
 app.controller('MyArtistsCtrl', function($scope, UserFactory, RidersFactory, $timeout) {
 
 	// Timeout is to load user before it attempts to load their riders
+	// Load user riders for Artist Managers
 	$timeout(function() {
 		RidersFactory.getUserRiders()
 		.then(function(userRidersCollection) {
@@ -11,6 +12,7 @@ app.controller('MyArtistsCtrl', function($scope, UserFactory, RidersFactory, $ti
 		});
 	}, 50);
 
+	// Load user details 
 	$timeout(function() {
 		UserFactory.getUserDetails()
 		.then(function(userDetails) {
@@ -20,9 +22,15 @@ app.controller('MyArtistsCtrl', function($scope, UserFactory, RidersFactory, $ti
 		});
 	}, 50);
 
-	// $scope.showCreate = function() {
-	// 	console.log("going to create.html");
-	// 	$location.url('#/createRider');
-	// };	
+	// Do I want this or do I want a getVenueUser??
+	// Can I use this to apply logic to or would it be better to parse in factory??
+	$timeout(function() {
+		RidersFactory.getAllRidersFB()
+		.then(function(ridersCollection) {
+			$scope.allRiders = ridersCollection;
+			// console.log("allRiders", $scope.allRiders);
+
+		});
+	});	
 	
 });
