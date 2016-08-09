@@ -29,7 +29,19 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
     let venueUserId = AuthFactory.getUser().uid;
     let venueUserRiders = [];
     return $q(function(resolve, reject) {
-      $http.get(`${FirebaseURL}/venueRiders.json?orderBy="vuid"&equalTo=${venueUserId}"`)
+      $http.get(`${FirebaseURL}/venueRiders.json?orderBy="vuid"&equalTo="${venueUserId}"`)
+      .success(function(venueRidersObj) {
+        console.log("venueRidersObj", venueRidersObj);
+        let venueRidersCollection = venueRidersObj;
+        Object.keys(venueRidersCollection).forEach(function(key) {
+          venueRidersCollection[key].id = key;
+          venueUserRiders.push(venueRidersCollection[key]);
+        });
+        resolve(venueUserRiders);
+      })
+      .error(function(error) {
+        reject(error);
+      });
     });
   };
 
@@ -56,7 +68,7 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
 
   // Return rider linked on viewArtist
   const getRiderFB = function(riderId) {
-    console.log("getFB riderId", riderId);
+    // console.log("getFB riderId", riderId);
     return $q(function(resolve, reject) {
       $http.get(`${FirebaseURL}/riders/${riderId}.json`)
       .success(function(riderObj) {
@@ -73,6 +85,20 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
     return $q(function(resolve, reject) {
       $http.post(`${FirebaseURL}/riders.json`,
         JSON.stringify(newRider))
+      .success(function() {
+        resolve();
+      })
+      .error(function(error) {
+        reject(error);
+      });
+    });
+  };
+
+  // For Venue to add rider to account
+  const postVenueRider = function(addRider) {
+    return $q(function(resolve, reject) {
+      $http.post(`${FirebaseURL}/venueRiders.json`,
+        JSON.stringify(addRider))
       .success(function() {
         resolve();
       })
@@ -111,6 +137,6 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
     });
   };
 
-  return { getAllRidersFB, getUserRiders, getRiderFB, postRiderFB, editRiderFB, deleteRiderFB };
+  return { getAllRidersFB, getUserRiders, getRiderFB, postRiderFB, editRiderFB, deleteRiderFB, getVenueRiders, postVenueRider };
 
 });

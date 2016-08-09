@@ -18,7 +18,15 @@ app.controller('ArtViewCtrl', function($scope, RidersFactory, $routeParams, User
 		console.log("viewArtCurrentUser", $scope.currentUser);
 	});
 
-
+	// Add venueUserId to rider and post to FB (for myArtist venue view)
+	$scope.addVenToRider = function(venueUserId) {
+		console.log("venueUserId", venueUserId);
+		$scope.currentRider.vuid = venueUserId;
+		RidersFactory.postVenueRider($scope.currentRider)
+		.then(function() {
+			$location.url('/myArtists');
+		});
+	};
 
 });
 

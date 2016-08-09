@@ -12,6 +12,15 @@ app.controller('MyArtistsCtrl', function($scope, UserFactory, RidersFactory, $ti
 		});
 	}, 50);
 
+	// Load user riders for Venues
+	$timeout(function() {
+		RidersFactory.getVenueRiders()
+		.then(function(userVenueCollection) {
+			console.log("userVenueCollection", userVenueCollection);
+			$scope.venueRiders = userVenueCollection;
+		});
+	}, 50);
+
 	// Load user details 
 	$timeout(function() {
 		UserFactory.getUserDetails()
@@ -21,9 +30,7 @@ app.controller('MyArtistsCtrl', function($scope, UserFactory, RidersFactory, $ti
 			// console.log("currentUser", $scope.currentUser);
 		});
 	}, 50);
-
-	
-	
+		
 });
 
 	/************** IF I DO NOT GET FLATTENED DATA TO WORK *****************/
