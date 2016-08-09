@@ -128,7 +128,6 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
     return $q(function(resolve, reject) {
       $http.delete(`${FirebaseURL}/riders/${riderId}.json`)
       .success(function() {
-        // console.log("rider deleted");
         resolve();
       })
       .error(function(error) {
@@ -137,6 +136,19 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
     });
   };
 
-  return { getAllRidersFB, getUserRiders, getRiderFB, postRiderFB, editRiderFB, deleteRiderFB, getVenueRiders, postVenueRider };
+  const deleteVenueRider = function(riderId) {
+    console.log("delVenue", riderId);
+    return $q(function(resolve, delete) {
+      $http.delete(`${FirebaseURL}/venueRiders/${riderId}.json`)
+      .success(function() {
+        resolve();
+      })
+      .error(function(error) {
+        reject(error);
+      });
+    });
+  };
+
+  return { getAllRidersFB, getUserRiders, getRiderFB, postRiderFB, editRiderFB, deleteRiderFB, getVenueRiders, postVenueRider, deleteVenueRider };
 
 });
