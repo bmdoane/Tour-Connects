@@ -123,6 +123,7 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
     });
   };  
 
+  // Delete Artist Man created rider from database
   const deleteRiderFB = function(riderId) {
     console.log("delFB", riderId);
     return $q(function(resolve, reject) {
@@ -136,18 +137,21 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
     });
   };
 
+  // Delete Venue riders from Venue user account (myArtists)
   const deleteVenueRider = function(riderId) {
     console.log("delVenue", riderId);
-    return $q(function(resolve, delete) {
+    return $q(function(resolve, reject) {
       $http.delete(`${FirebaseURL}/venueRiders/${riderId}.json`)
-      .success(function() {
-        resolve();
+      .success(function(venueObj) {
+        resolve(venueObj);
       })
       .error(function(error) {
         reject(error);
       });
     });
   };
+
+  // How to: If rider is deleted from riders, it would also be deleted from venue view?  Same for updates??  Think about it...
 
   return { getAllRidersFB, getUserRiders, getRiderFB, postRiderFB, editRiderFB, deleteRiderFB, getVenueRiders, postVenueRider, deleteVenueRider };
 
