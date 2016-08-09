@@ -2,6 +2,7 @@
 
 app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
 
+  // Return all riders created for list
   const getAllRidersFB = function() {
     let riderList = [];
     return $q(function(resolve, reject) {
@@ -23,6 +24,16 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
     });
   };
 
+  // Return riders a venue has added to account
+  const getVenueRiders = function() {
+    let venueUserId = AuthFactory.getUser().uid;
+    let venueUserRiders = [];
+    return $q(function(resolve, reject) {
+      $http.get(`${FirebaseURL}/venueRiders.json?orderBy="vuid"&equalTo=${venueUserId}"`)
+    });
+  };
+
+  // Return riders artist management has created for account 
   const getUserRiders = function() {
     let userId = AuthFactory.getUser().uid;
     // console.log("getUserRiders", userId);
@@ -43,7 +54,7 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
     });
   };
 
-  // To use for rider links to viewArtist
+  // Return rider linked on viewArtist
   const getRiderFB = function(riderId) {
     console.log("getFB riderId", riderId);
     return $q(function(resolve, reject) {

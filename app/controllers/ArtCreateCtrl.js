@@ -23,8 +23,8 @@ app.controller('ArtCreateCtrl', function($scope, $location, AuthFactory, RidersF
 		tickets: "",
 		// addRider() places creator's uid, tying them to rider
 		uid: "",
-		// Need to instantuate this property like addRider does for uid
-		venues: ["test"]
+		// () places venue's uid tying them to the rider.  Copies posted to seperate FB key
+		vuid: ""
 	};
 
 	// Think I need to have a promise return where I push rider into Art Man Array
@@ -39,7 +39,7 @@ app.controller('ArtCreateCtrl', function($scope, $location, AuthFactory, RidersF
 		});
 	};
 
-	// for isAdmin?  Do I need now? Want to put any user info on page?
+	// For isAdmin property on currentUser
 	UserFactory.getUserDetails()
 	.then(function(userDetails) {
 		console.log("userDetails", userDetails);

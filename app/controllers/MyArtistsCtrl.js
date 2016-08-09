@@ -22,15 +22,18 @@ app.controller('MyArtistsCtrl', function($scope, UserFactory, RidersFactory, $ti
 		});
 	}, 50);
 
-	// Do I want this or do I want a getVenueUser??
-	// Can I use this to apply logic to or would it be better to parse in factory??
-	$timeout(function() {
-		RidersFactory.getAllRidersFB()
-		.then(function(ridersCollection) {
-			$scope.allRiders = ridersCollection;
-			// console.log("allRiders", $scope.allRiders);
-
-		});
-	});	
+	
 	
 });
+
+	/************** IF I DO NOT GET FLATTENED DATA TO WORK *****************/
+	// Do I want this or do I want a getVenueUser??
+	// Can I use this to apply logic to or would it be better to parse in factory??
+	// $timeout(function() {
+	// 	RidersFactory.getAllRidersFB()
+	// 	.then(function(ridersCollection) {
+	// 		$scope.allRiders = ridersCollection;
+	// 		// console.log("allRiders", $scope.allRiders);
+
+	// 	});
+	// });
