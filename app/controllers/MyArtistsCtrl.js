@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('MyArtistsCtrl', function($scope, UserFactory, RidersFactory, $timeout) {
+app.controller('MyArtistsCtrl', function($scope, UserFactory, RidersFactory, $timeout, $location) {
 
 	// Timeout is to load user before it attempts to load their riders
 	// Load user riders for Artist Managers
@@ -9,6 +9,15 @@ app.controller('MyArtistsCtrl', function($scope, UserFactory, RidersFactory, $ti
 		.then(function(userRidersCollection) {
 			$scope.userRiders = userRidersCollection;
 			// console.log("$scope.userRiders", $scope.userRiders);
+		});
+	}, 50);
+
+	// Load user riders for Venues
+	$timeout(function() {
+		RidersFactory.getVenueRiders()
+		.then(function(userVenueCollection) {
+			// console.log("userVenueCollection", userVenueCollection);
+			$scope.venueRiders = userVenueCollection;
 		});
 	}, 50);
 
@@ -22,15 +31,16 @@ app.controller('MyArtistsCtrl', function($scope, UserFactory, RidersFactory, $ti
 		});
 	}, 50);
 
-	// Do I want this or do I want a getVenueUser??
-	// Can I use this to apply logic to or would it be better to parse in factory??
-	$timeout(function() {
-		RidersFactory.getAllRidersFB()
-		.then(function(ridersCollection) {
-			$scope.allRiders = ridersCollection;
-			// console.log("allRiders", $scope.allRiders);
-
+	$scope.deleteVenue = function(riderId) {
+		console.log("DV is happening");
+		console.log("riderId", riderId);
+		// Delete rider, link, button and page refresh??
+		RidersFactory.deleteVenueRider(riderId)
+		.then(function(userVenueRiders) {
+			console.log("userVenueRiders", userVenueRiders);
+			$scope.venueRiders = userVenueRiders;
+			$location.url('/myArtists');
 		});
-	});	
-	
+	};
+		
 });

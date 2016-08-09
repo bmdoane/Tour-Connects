@@ -23,7 +23,7 @@ app.controller('RegCtrl', function($scope, $location, AuthFactory, UserFactory) 
 		$scope.newUser.uid = result.uid;
 		UserFactory.postUserFB($scope.newUser);			
 		})
-		.then(function(result) {
+		.then(function() { // Had result in here
 			$location.path('/myArtists');
 			$scope.$apply();
 		}).catch(function(err) {
