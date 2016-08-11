@@ -142,8 +142,9 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
     console.log("delVenue", riderId);
     return $q(function(resolve, reject) {
       $http.delete(`${FirebaseURL}/venueRiders/${riderId}.json`)
-      .success(function(venueObj) {
-        resolve(venueObj);
+      .success(function() {
+        // This method does not return an object
+        resolve();
       })
       .error(function(error) {
         reject(error);

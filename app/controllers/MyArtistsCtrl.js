@@ -31,15 +31,19 @@ app.controller('MyArtistsCtrl', function($scope, UserFactory, RidersFactory, $ti
 		});
 	}, 50);
 
+	// This is navigating to artistView for split second before refreshing myArtists
 	$scope.deleteVenue = function(riderId) {
 		console.log("DV is happening");
 		console.log("riderId", riderId);
-		// Delete rider, link, button and page refresh??
+		// Delete does not return obj, so you need to call getter
 		RidersFactory.deleteVenueRider(riderId)
-		.then(function(userVenueRiders) {
-			console.log("userVenueRiders", userVenueRiders);
-			$scope.venueRiders = userVenueRiders;
-			$location.url('/myArtists');
+		.then(function() {
+			RidersFactory.getVenueRiders()
+			.then(function(userVenueRiders) {
+				console.log("userVenueRiders", userVenueRiders);
+				$scope.venueRiders = userVenueRiders;			
+			});
+			// $location.url('/myArtists');
 		});
 	};
 		
