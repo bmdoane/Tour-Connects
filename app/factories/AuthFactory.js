@@ -21,6 +21,7 @@ app.factory('AuthFactory', function() {
   };
 
   let setUser = function(id) {
+    console.log("id", id);
     currentUserId = id;
     // console.log(currentUserId, "currentUserId")
   };
@@ -29,8 +30,8 @@ app.factory('AuthFactory', function() {
     return firebase.auth().createUserWithEmailAndPassword(email, password)
     .catch(function(error) {
     // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
+    let errorCode = error.code;
+    let errorMessage = error.message;
     // ...
     console.warn(errorCode, errorMessage);
     });
@@ -39,8 +40,8 @@ app.factory('AuthFactory', function() {
   let authWithEmail = function (email, password) {
     return firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
     // What is this?
-    var errorCode = error.code;
-    var errorMessage = error.message;
+    let errorCode = error.code;
+    let errorMessage = error.message;
     // ...
     console.warn(errorCode, errorMessage);
     });
@@ -59,7 +60,8 @@ app.run(["$location", "FBCreds", "AuthFactory", function ($location, FBCreds, Au
   };
 
   firebase.initializeApp(authConfig);
-
+  // Anytime app is initialized all users will be logged out of session
+  firebase.auth().signOut();
   // Get currently signed in user with observer on Auth Object
   // This is for a page refresh redirection
   firebase.auth().onAuthStateChanged(function (user) {
