@@ -4,6 +4,8 @@ app.controller('ArtViewCtrl', function($scope, RidersFactory, $routeParams, User
 
 	// Routeparams prop can be any namespace, just needs to match app.config
 	// Is this bad to have hanging out??
+
+
 	RidersFactory.getRiderFB($routeParams.riderId)
 	.then(function(riderObj) {
 		console.log("ArtViewRiderObj", riderObj);
@@ -13,7 +15,7 @@ app.controller('ArtViewCtrl', function($scope, RidersFactory, $routeParams, User
 	RidersFactory.getVenueRider($routeParams.riderId)
 	.then(function(riderObj) {
 		console.log("ArtViewRiderObj", riderObj);
-		$scope.currentRider = riderObj;
+		$scope.currentVenRider = riderObj;
 	});
 
 	// To use for venue.  If currentUser is !isAdmin
@@ -41,3 +43,22 @@ app.controller('ArtViewCtrl', function($scope, RidersFactory, $routeParams, User
 	};
 
 });
+	// RidersFactory.getRiderFB($routeParams.riderId)
+	// .then(function(riderObj) {
+	// 	console.log("ArtViewRiderObj", riderObj);
+	// 	$scope.currentRider = riderObj;
+	// });
+
+	// RidersFactory.getVenueRider($routeParams.riderId)
+	// .then(function(riderObj) {
+	// 	console.log("ArtViewRiderObj", riderObj);
+	// 	$scope.currentRider = riderObj;
+	// });
+
+
+
+
+
+
+
+

@@ -4,107 +4,50 @@
     <div id="read">
       <h3>Artist View</h3>
       <!-- <div class="row"> -->
-        <form class="col s12" name="editForm">
-          <div class="row">
-            <div class="input-field col s6">
-              <input ng-model="currentRider.name" type="text" class="validate readonlyInput" ng-readonly="true">
-              <label class="active" for="artist">Artist:</label>
-            </div>
-            <div class="input-field col s6">
-              <input ng-model="currentRider.genre" type="text" class="validate" ng-readonly="true">
-              <label class="active" for="genre">Genre:</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s6">
-              <input ng-model="currentRider.riderDate" type="text" class="validate" ng-readonly="true">
-              <label class="active" for="date">Date:</label>
-            </div>
-            <div class="input-field col s6">
-              <input ng-model="currentRider.tourContact" type="text" class="validate" ng-readonly="true">
-              <label class="active" for="contact">Tour Contact</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s6">
-              <input ng-model="currentRider.phone" type="text" class="validate" ng-readonly="true">
-              <label class="active" for="phone">Phone:</label>
-            </div>
-            <div class="input-field col s6">
-              <input ng-model="currentRider.email" type="text" class="validate" ng-readonly="true">
-              <label class="active" for="email">Email:</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <textarea ng-model="currentRider.lodging" class="materialize-textarea" ng-readonly="true"></textarea>
-              <label class="active" for="lodging">Lodging:</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <textarea ng-model="currentRider.backline" class="materialize-textarea" ng-readonly="true"></textarea>
-              <label class="active" for="backline">Backline:</label>
-            </div>
-          </div> 
-          <div class="row">
-            <div class="input-field col s12">
-              <textarea ng-model="currentRider.audio" class="materialize-textarea" ng-readonly="true"></textarea>
-              <label class="active" for="audio">Audio:</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <textarea ng-model="currentRider.lighting" class="materialize-textarea" ng-readonly="true"></textarea>
-              <label class="active" for="lighting">Lighting:</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <textarea ng-model="currentRider.stage" class="materialize-textarea" ng-readonly="true"></textarea>
-              <label class="active" for="stage">Stage:</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <textarea ng-model="currentRider.schedule" class="materialize-textarea" ng-readonly="true"></textarea>
-              <label class="active" for="schedule">Schedule:</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <textarea class="materialize-textarea" ng-model="currentRider.showRun" ng-readonly="true"></textarea>
-              <label class="active" for="showRun">Show Run:</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <textarea class="materialize-textarea" ng-model="currentRider.dressingRoom" ng-readonly="true"></textarea>
-              <label class="active" for="dressingRoom">Dressing Room:</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <textarea class="materialize-textarea" ng-model="currentRider.catering" ng-readonly="true"></textarea>
-              <label class="active" for="catering">Catering:</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <textarea class="materialize-textarea" ng-model="currentRider.security" ng-readonly="true"></textarea>
-              <label class="active" for="security">Security:</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <textarea class="materialize-textarea" ng-model="currentRider.tickets" ng-readonly="true"></textarea>
-              <label class="active" for="tickets">Tickets:</label>
-            </div>
-          </div>
-        </form>
+
+      <div class="venueView" ng-show="!currentUser.isAdmin">
+        <div>{{currentVenRider.name}}</div>
+        <div>{{currentVenRider.genre}}</div>
+        <div>{{currentVenRider.riderDate}}</div>
+        <div>{{currentVenRider.tourContact}}</div>
+        <div>{{currentVenRider.phone}}</div>
+        <div>{{currentVenRider.email}}</div>
+        <div>{{currentVenRider.lodging}}</div>
+        <div>{{currentVenRider.backline}}</div>
+        <div>{{currentVenRider.audio}}</div>
+        <div>{{currentVenRider.lighting}}</div>
+        <div>{{currentVenRider.stage}}</div>
+        <div>{{currentVenRider.schedule}}</div> 
+        <div>{{currentVenRider.showRun}}</div>
+        <div>{{currentVenRider.dressingRoom}}</div>
+        <div>{{currentVenRider.catering}}</div>
+        <div>{{currentVenRider.security}}</div>
+        <div>{{currentVenRider.tickets}}</div>          
+      </div>
+
+      <div class="artManView" ng-show="currentUser.isAdmin">
+        <div>{{currentRider.name}}</div>
+        <div>{{currentRider.genre}}</div>
+        <div>{{currentRider.riderDate}}</div>
+        <div>{{currentRider.tourContact}}</div>
+        <div>{{currentRider.phone}}</div>
+        <div>{{currentRider.email}}</div>
+        <div>{{currentRider.lodging}}</div>
+        <div>{{currentRider.backline}}</div>
+        <div>{{currentRider.audio}}</div>
+        <div>{{currentRider.lighting}}</div>
+        <div>{{currentRider.stage}}</div>
+        <div>{{currentRider.schedule}}</div> 
+        <div>{{currentRider.showRun}}</div>
+        <div>{{currentRider.dressingRoom}}</div>
+        <div>{{currentRider.catering}}</div>
+        <div>{{currentRider.security}}</div>
+        <div>{{currentRider.tickets}}</div>                
+      </div>
+
         <!-- Possibly move this to top -->
         <!-- Show this button on !isAdmin viewArtist.html.   -->
-        <div ng-show="currentUser.isAdmin === false">
+        <div ng-show="!currentUser.isAdmin">
           <button ng-click="addVenToRider(currentUser.uid)">Add</button>
         </div>
       <!-- </div>  -->
