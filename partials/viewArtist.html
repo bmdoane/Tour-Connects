@@ -7,6 +7,8 @@
 
       <div class="venueView" ng-show="!currentUser.isAdmin">
         <div>{{currentVenRider.name}}</div>
+        <!-- Put a class on this to manage size -->
+        <img ng-src="{{currentVenArtist.artists.items[0].images[1].url}}">        
         <div>{{currentVenRider.genre}}</div>
         <div>{{currentVenRider.riderDate}}</div>
         <div>{{currentVenRider.tourContact}}</div>
@@ -27,6 +29,8 @@
 
       <div class="artManView" ng-show="currentUser.isAdmin">
         <div>{{currentRider.name}}</div>
+        <!-- Put a class on this to manage size -->
+        <img ng-src="{{currentArtist.artists.items[0].images[1].url}}">
         <div>{{currentRider.genre}}</div>
         <div>{{currentRider.riderDate}}</div>
         <div>{{currentRider.tourContact}}</div>
@@ -46,6 +50,7 @@
       </div>
 
         <!-- Possibly move this to top -->
+        <!-- Hide this if in Venue list.  How?? -->
         <!-- Show this button on !isAdmin viewArtist.html.   -->
         <div ng-show="!currentUser.isAdmin">
           <button ng-click="addVenToRider(currentUser.uid)">Add</button>

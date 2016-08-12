@@ -3,19 +3,29 @@
 app.controller('ArtViewCtrl', function($scope, RidersFactory, $routeParams, UserFactory, $location, SpotifyFactory) {
 
 	// Routeparams prop can be any namespace, just needs to match app.config
-	// Is this bad to have hanging out??
-
-
+	// Art Manager rider 
 	RidersFactory.getRiderFB($routeParams.riderId)
 	.then(function(riderObj) {
-		console.log("ArtViewRiderObj", riderObj);
+		// console.log("ArtViewRiderObj", riderObj);
 		$scope.currentRider = riderObj;
+		// How can i get this out of here??
+		SpotifyFactory.addArtistInfo($scope.currentRider.name)
+		.then(function(artistDetails) {
+			console.log("artistDetails", artistDetails.artists.items[0].id);
+			$scope.currentArtist = artistDetails;
+		});
 	});
 
+	// Venue rider
 	RidersFactory.getVenueRider($routeParams.riderId)
 	.then(function(riderObj) {
-		console.log("ArtViewRiderObj", riderObj);
+		// console.log("ArtViewRiderObj", riderObj);
 		$scope.currentVenRider = riderObj;
+		SpotifyFactory.addArtistInfo($scope.currentVenRider.name)
+		.then(function(artistDetails) {
+			console.log("artistDetails", artistDetails.artists.items[0].id);
+			$scope.currentArtist = artistDetails;
+		});
 	});
 
 	// To use for venue.  If currentUser is !isAdmin
@@ -26,11 +36,7 @@ app.controller('ArtViewCtrl', function($scope, RidersFactory, $routeParams, User
 		console.log("viewArtCurrentUser", $scope.currentUser);
 	});
 
-	// SpotifyFactory.addArtistInfo(currentRider.name)
-	// .then(function(artistDetails) {
-	// 	console.log("artistDetails", artistDetails);
-	// 	$scope.currentArtist = artistDetails;
-	// })
+
 
 	// Add venueUserId to rider and post to FB (for myArtist venue view)
 	$scope.addVenToRider = function(venueUserId) {
@@ -43,22 +49,3 @@ app.controller('ArtViewCtrl', function($scope, RidersFactory, $routeParams, User
 	};
 
 });
-	// RidersFactory.getRiderFB($routeParams.riderId)
-	// .then(function(riderObj) {
-	// 	console.log("ArtViewRiderObj", riderObj);
-	// 	$scope.currentRider = riderObj;
-	// });
-
-	// RidersFactory.getVenueRider($routeParams.riderId)
-	// .then(function(riderObj) {
-	// 	console.log("ArtViewRiderObj", riderObj);
-	// 	$scope.currentRider = riderObj;
-	// });
-
-
-
-
-
-
-
-
