@@ -21,7 +21,8 @@
 				<div id="venueList">
 					<h4>Artist Riders</h4>
 					<div ng-repeat="rider in venueRiders">
-						<a ng-href="#/viewArt/{{rider.id}}"> {{rider.name}}</a><button ng-click="deleteVenue(rider.id)">Delete</button>	
+						<a ng-href="#/viewArt/{{rider.id}}">{{rider.name}}</a>
+						<button ng-click="deleteVenue(rider.id)">Delete</button>	
 					</div>												
 				</div><!-- venueList -->
 			</div> <!-- venueLook -->
@@ -42,8 +43,7 @@
 				<div id="artManList">
 					<h4>Artist Riders</h4>
 					<div ng-repeat="rider in userRiders">
-						<!-- Look at reworking buttons to ng-click -->
-						<a ng-href="#/viewArt/{{rider.id}}"> {{rider.name}} </a>
+						<a ng-href="#/viewArt/{{rider.id}}">{{rider.name}}</a>
 						<a ng-href="#/artEdit/{{rider.id}}/edit"><button>Edit</button></a>
 					</div>				
 				</div><!-- artManList -->	
