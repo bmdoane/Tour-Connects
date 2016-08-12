@@ -66,12 +66,27 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
     });
   };
 
-  // Return rider linked on viewArtist
+  // Return Art Man rider linked to viewArtist
   const getRiderFB = function(riderId) {
     // console.log("getFB riderId", riderId);
     return $q(function(resolve, reject) {
       $http.get(`${FirebaseURL}/riders/${riderId}.json`)
       .success(function(riderObj) {
+        console.log("riderObj", riderObj);
+        resolve(riderObj);
+      })
+      .error(function(error) {
+        reject(error);
+      });
+    });
+  };
+
+  const getVenueRider = function(riderId) {
+    // console.log("getFB riderId", riderId);
+    return $q(function(resolve, reject) {
+      $http.get(`${FirebaseURL}/venueRiders/${riderId}.json`)
+      .success(function(riderObj) {
+        console.log("riderObj", riderObj);
         resolve(riderObj);
       })
       .error(function(error) {
@@ -154,6 +169,6 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
 
   // How to: If rider is deleted from riders, it would also be deleted from venue view?  Same for updates??  Think about it...
 
-  return { getAllRidersFB, getUserRiders, getRiderFB, postRiderFB, editRiderFB, deleteRiderFB, getVenueRiders, postVenueRider, deleteVenueRider };
+  return { getAllRidersFB, getUserRiders, getRiderFB, postRiderFB, editRiderFB, deleteRiderFB, getVenueRiders, postVenueRider, deleteVenueRider, getVenueRider };
 
 });

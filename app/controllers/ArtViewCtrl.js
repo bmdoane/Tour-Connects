@@ -1,12 +1,18 @@
 "use strict";
 
-app.controller('ArtViewCtrl', function($scope, RidersFactory, $routeParams, UserFactory, $location) {
+app.controller('ArtViewCtrl', function($scope, RidersFactory, $routeParams, UserFactory, $location, SpotifyFactory) {
 
 	// Routeparams prop can be any namespace, just needs to match app.config
 	// Is this bad to have hanging out??
 	RidersFactory.getRiderFB($routeParams.riderId)
 	.then(function(riderObj) {
-		// console.log("ArtViewRiderObj", riderObj);
+		console.log("ArtViewRiderObj", riderObj);
+		$scope.currentRider = riderObj;
+	});
+
+	RidersFactory.getVenueRider($routeParams.riderId)
+	.then(function(riderObj) {
+		console.log("ArtViewRiderObj", riderObj);
 		$scope.currentRider = riderObj;
 	});
 
@@ -17,6 +23,12 @@ app.controller('ArtViewCtrl', function($scope, RidersFactory, $routeParams, User
 		$scope.currentUser = userDetails[0];
 		console.log("viewArtCurrentUser", $scope.currentUser);
 	});
+
+	// SpotifyFactory.addArtistInfo(currentRider.name)
+	// .then(function(artistDetails) {
+	// 	console.log("artistDetails", artistDetails);
+	// 	$scope.currentArtist = artistDetails;
+	// })
 
 	// Add venueUserId to rider and post to FB (for myArtist venue view)
 	$scope.addVenToRider = function(venueUserId) {

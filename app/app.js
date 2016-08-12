@@ -5,14 +5,15 @@ const app = angular.module('Tour-Connects', ['ngRoute'])
 
 
 let isAuth = ($location) => new Promise((resolve, reject) => {
-	console.log("hey");
+	// console.log("hey");
 	let user = firebase.auth().currentUser;
   if (user) {
-  		console.log("hey, hey");
+  		// console.log("hey, hey");
     resolve();
+    // Do I need these returns?
     return true;    
   } else {
-  	console.log("hey, hey, hey");
+  	// console.log("hey, hey, hey");
   	// What is difference between path and url? Url works.
   	$location.url('/login');
     reject();

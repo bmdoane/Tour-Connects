@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('MyArtistsCtrl', function($scope, UserFactory, RidersFactory, $timeout, $location) {
+app.controller('MyArtistsCtrl', function($scope, UserFactory, RidersFactory, $timeout) {
 
 	// Timeout is to load user before it attempts to load their riders
 	// Load user riders for Artist Managers
@@ -16,7 +16,7 @@ app.controller('MyArtistsCtrl', function($scope, UserFactory, RidersFactory, $ti
 	$timeout(function() {
 		RidersFactory.getVenueRiders()
 		.then(function(userVenueCollection) {
-			// console.log("userVenueCollection", userVenueCollection);
+			console.log("userVenueCollection", userVenueCollection);
 			$scope.venueRiders = userVenueCollection;
 		});
 	}, 50);
