@@ -1,6 +1,6 @@
 "use strict";
 
-const app = angular.module('Tour-Connects', ['ngRoute'])
+const app = angular.module('Tour-Connects', ['ngRoute', 'ngAnimate'])
 .constant('FirebaseURL', "https://tourconnectstwo.firebaseio.com");
 
 
