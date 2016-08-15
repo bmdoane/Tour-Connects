@@ -3,8 +3,9 @@
 	<div data-ng-include="'partials/nav.html'"></div>
 
 	<div class="container">
-		<h3>Search Artists</h3>
-		<div ng-repeat="rider in riders">
+		<h3 class="header">Search Artists</h3>
+		<input type="text" placeholder="Find an artist..." ng-model="findRider" />
+		<div ng-repeat="rider in riders | filter: findRider">
 			<!-- Need to link Artist name to viewArt -->
 			<a ng-href="#/viewArt/{{rider.id}}"> {{rider.name}} </a>
 		</div>

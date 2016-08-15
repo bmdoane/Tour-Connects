@@ -3,15 +3,15 @@
 	<div data-ng-include="'partials/nav.html'"></div>
 
 	<div class="container">
-		<h3>My Artists</h3>
+		<h3 class="header">My Artists</h3>
 		<div class="inner-container">
 
 
 		  <div id="venueLook" ng-show="!currentUser.isAdmin">
 				<div id="venueContact">
 					<!-- Firebase user info -->
-					<h4>Venue: {{ currentUser.company }}</h4>
-					<h5>Contact Info:</h5>
+					<h4>{{ currentUser.company }}</h4>
+					<h5 class="contact">Contact Info:</h5>
 						<ul>
 							<li>Phone: {{ currentUser.phone }}</li>
 							<li>Email: {{ currentUser.email }}</li>
@@ -19,7 +19,7 @@
 						</ul>
 				</div><!-- contact -->
 				<div id="venueList">
-					<h4>Artist Riders</h4>
+					<h4 class="my-art">Artist Riders</h4>
 					<div ng-repeat="rider in venueRiders">
 						<a ng-href="#/viewArt/{{rider.id}}">{{rider.name}}</a>
 						<button ng-click="deleteVenue(rider.id)">Delete</button>	
@@ -29,19 +29,24 @@
 
 
 			<div id="artManLook" ng-show="currentUser.isAdmin"> 
-				<div id="artManContact">
-					<!-- Firebase user info -->
-
-					<h4>Artist Management: {{ currentUser.company }}</h4>
-					<h5>Contact Info:</h5>
-						<ul>
-							<li>Phone: {{ currentUser.phone }}</li>
-							<li>Email: {{ currentUser.email }}</li>
-							<li>Address: {{ currentUser.address }}</li>
-						</ul>
-				</div><!-- contact -->
+				<div class="row">
+					<div id="artManContact" class="card-panel amc">
+						<!-- Firebase user info -->
+						<div class="col s6">
+							<h4>{{ currentUser.company }}</h4>
+						</div>
+						<div class="col s6">	
+							<h5 class="contact">Contact Info:</h5>
+							<ul>
+								<li>Phone: {{ currentUser.phone }}</li>
+								<li>Email: {{ currentUser.email }}</li>
+								<li>Address: {{ currentUser.address }}</li>
+							</ul>
+						</div>
+					</div><!-- contact -->
+				</div>
 				<div id="artManList">
-					<h4>Artist Riders</h4>
+					<h4 class="header">Artist Riders</h4>
 					<div ng-repeat="rider in userRiders">
 						<a ng-href="#/viewArt/{{rider.id}}">{{rider.name}}</a>
 						<a ng-href="#/artEdit/{{rider.id}}/edit"><button>Edit</button></a>

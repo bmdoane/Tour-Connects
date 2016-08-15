@@ -1,0 +1,14 @@
+@import "../components/colors";
+
+.amc {
+	border: 1px solid black;
+	border-radius: 10px;
+	color: $primary-nav;
+	background: rgba(88, 143, 139,.4);
+	height: 175px;
+	margin: 20px 0 0 0;
+}
+
+.contact {
+	text-decoration: underline;
+}

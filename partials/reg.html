@@ -1,60 +1,70 @@
+<nav id="navy">
+  <div class="nav-wrapper navColor">
+    <a href="#" class="brand-logo center">Tour Connects</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="#/login">Back to Login</a></li>
+    </ul>
+  </div>
+</nav>
 <div class="container">
-	<h3>Registration:</h3>
-	<a href="#/login">Back to Login</a>
+	<h3 class="header">Registration:</h3>
 	<div class="row">
     <form class="col s12">
       <div class="row">
       	<!-- Look at adding tabindex 0 and autofocus true -->
         <div class="input-field col s6">
-          <input id="first_name" type="text" class="validate" ng-model="newUser.firstName">
-          <label for="first_name">First Name</label>
+          <input id="first_name" type="text" class="validate" ng-model="newUser.firstName" tabindex="-1">
+          <label class="active" for="first_name">First Name</label>
         </div>
         <div class="input-field col s6">
           <input id="last_name" type="text" class="validate" ng-model="newUser.lastName">
-          <label for="last_name">Last Name</label>
+          <label class="active" for="last_name">Last Name</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s6">
           <input id="company" type="text" class="validate" ng-model="newUser.company">
-          <label for="company">Company</label>
+          <label class="active" for="company">Company</label>
         </div>
         <!-- Would like to change this out with dropdown -->
         <div class="input-field col s6">
           <input type="checkbox" id="venueReg" />
-      		<label for="venueReg">Venue</label> 
+      		<label class="active" for="venueReg">Venue</label> 
       		<!-- Change default value of newUser.isAdmin to true if checked -->
           <input type="checkbox" id="amReg" ng-model="newUser.isAdmin" ng-true-value="true" />
-      		<label for="amReg">Artist Management</label>       		
+      		<label class="active" for="amReg">Artist Management</label>       		
         </div>			       
       </div>
       <div class="row">
         <div class="input-field col s12">
           <input id="address" type="text" class="validate" ng-model="newUser.address">
-          <label for="address">Address</label>
+          <label class="active" for="address">Address</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
           <input id="phone" type="text" class="validate" ng-model="newUser.phone">
-          <label for="phone">Phone</label>
+          <label class="active" for="phone">Phone</label>
         </div>
       </div>      
       <div class="row">
         <div class="input-field col s12">
           <input id="email" type="email" class="validate" ng-model="newUser.email">
-          <label for="email">Email</label>
+          <label class="active" for="email">Email</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
           <input id="password" type="password" class="validate" ng-model="password">
-          <label for="password">Password</label>
+          <label class="active" for="password">Password</label>
         </div>
       </div>
+      <div class="row">
+        <div class="col s12 center">      
+	        <button class="logBtn" ng-click="save()">Save Info</button>
+        </div>
+      </div>  
     </form>
   </div>
-
-	<button ng-click="save()">Save Info</button>
 
 </div> <!-- container -->
