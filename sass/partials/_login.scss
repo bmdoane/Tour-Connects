@@ -1,0 +1,85 @@
+@import "../components/colors";
+
+/***************
+**** NAVBAR ****
+***************/
+.navColor {
+	background-color: $primary-nav;
+}
+
+.brand-logo {
+	// padding-top: 13px !important;
+	text-shadow: 1px 1px 2px black;
+	font-family: "Racing Sans One", sans-serif;
+	font-size: 3em !important;
+}
+
+.stage {
+	height: 800px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: 
+  url("https://farm2.staticflickr.com/1647/25631417223_197a10b011_o.jpg");
+  background-position: center center;
+}
+
+/* Cards */
+.card-panel {
+	border: 1px solid black;
+	border-radius: 10px;
+	color: white;
+	background: rgba(0,0,0,.4);
+	height: 220px;
+	margin: 20px 0 0 0;
+}
+
+.log {
+	height: 250px;
+	margin: 0;
+}
+
+.nofx {
+	text-shadow: none;
+	margin: 0;
+	font-size: 2em;
+}
+
+.mission {
+	font-size: 2em;
+	color: white;
+	text-align: justify;
+	font-family: teko, sans-serif;
+	letter-spacing: .05em;
+	border: 1px solid black;
+	border-radius: 10px;
+	color: white;
+	background: rgba(0,0,0,.6);
+}
+
+.mission p {
+	margin: 0;
+}
+
+.input-field {
+	height: 60px;
+}
+
+.logBtns {
+	margin-top: 15px;
+}
+
+.logBtn {
+	background-color: $light-green;
+	color: white;
+	height: 36px;
+	padding: 0 30px;
+	border: 1px solid black;
+	border-radius: 10px;
+}
+
+.logBtns h5{
+	color: #fff;
+	font-size: 15px;
+	text-shadow: 1px 1px 2px black;
+}
+
