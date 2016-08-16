@@ -8,21 +8,27 @@
 
 
 		  <div id="venueLook" ng-show="!currentUser.isAdmin">
-				<div id="venueContact">
-					<!-- Firebase user info -->
-					<h4>{{ currentUser.company }}</h4>
-					<h5 class="contact">Contact Info:</h5>
-						<ul>
-							<li>Phone: {{ currentUser.phone }}</li>
-							<li>Email: {{ currentUser.email }}</li>
-							<li>Address: {{ currentUser.address }}</li>
-						</ul>
-				</div><!-- contact -->
+		  	<div class="row">
+					<div id="venueContact" class="card-panel amc">
+						<!-- Firebase user info -->
+						<div class="col s6">
+							<h4>{{ currentUser.company }}</h4>
+						</div>
+						<div class="col s6">	
+							<h5 class="contact">Contact Info:</h5>
+							<ul>
+								<li>Phone: {{ currentUser.phone }}</li>
+								<li>Email: {{ currentUser.email }}</li>
+								<li>Address: {{ currentUser.address }}</li>
+							</ul>
+						</div>		
+					</div><!-- contact -->
+				</div>	
 				<div id="venueList">
-					<h4 class="my-art">Artist Riders</h4>
-					<div ng-repeat="rider in venueRiders">
-						<a ng-href="#/viewArt/{{rider.id}}">{{rider.name}}</a>
-						<button ng-click="deleteVenue(rider.id)">Delete</button>	
+					<h4 class="header">Artist Riders</h4>
+					<div ng-repeat="rider in venueRiders" class="card-panel list" ng-class-odd="'odd'">
+						<a class="artLink" ng-href="#/viewArt/{{rider.id}}">{{rider.name}}</a>
+						<button class="artBtn right" ng-click="deleteVenue(rider.id)">Delete</button>	
 					</div>												
 				</div><!-- venueList -->
 			</div> <!-- venueLook -->
@@ -46,13 +52,20 @@
 					</div><!-- contact -->
 				</div>
 				<div id="artManList">
-					<h4 class="header">Artist Riders</h4>
-					<div ng-repeat="rider in userRiders" class="card-panel aml" ng-class-odd="'odd'">
+					<div class="row">
+						<div class="col s6">
+							<h4 class="header">Artist Riders</h4>
+						</div>
+						<div class="col s6 create">
+							<a ng-href="#/createRider"><button class="logBtn right">Create Rider</button></a>
+						</div>	
+					</div>
+					<div ng-repeat="rider in userRiders" class="card-panel list" ng-class-odd="'odd'">
 						<a class="artLink" ng-href="#/viewArt/{{rider.id}}">{{rider.name}}</a>
-						<a ng-href="#/artEdit/{{rider.id}}/edit"><button class="editBtn right">Edit</button></a>
+						<a ng-href="#/artEdit/{{rider.id}}/edit"><button class="artBtn right">Edit</button></a>
 					</div>				
 				</div><!-- artManList -->	
-				<a ng-href="#/createRider"><button class="logBtn">Create Rider</button></a>
+				<!-- <a ng-href="#/createRider"><button class="logBtn">Create Rider</button></a> -->
 			</div> <!-- artManLook -->
 			
 
