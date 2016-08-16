@@ -5,9 +5,10 @@
 	<div class="container">
 		<h3 class="header">Search Artists</h3>
 		<input type="text" placeholder="Find an artist..." ng-model="findRider" />
-		<div ng-repeat="rider in riders | filter: findRider">
+		<div ng-repeat="rider in riders | orderBy: 'name' | filter: findRider">
 			<!-- Need to link Artist name to viewArt -->
 			<a ng-href="#/viewArt/{{rider.id}}"> {{rider.name}} </a>
+			<!-- ng-click path and id -->
 		</div>
 	</div>
 

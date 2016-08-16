@@ -47,12 +47,12 @@
 				</div>
 				<div id="artManList">
 					<h4 class="header">Artist Riders</h4>
-					<div ng-repeat="rider in userRiders">
-						<a ng-href="#/viewArt/{{rider.id}}">{{rider.name}}</a>
-						<a ng-href="#/artEdit/{{rider.id}}/edit"><button>Edit</button></a>
+					<div ng-repeat="rider in userRiders" class="card-panel aml" ng-class-odd="'odd'">
+						<a class="artLink" ng-href="#/viewArt/{{rider.id}}">{{rider.name}}</a>
+						<a ng-href="#/artEdit/{{rider.id}}/edit"><button class="editBtn right">Edit</button></a>
 					</div>				
 				</div><!-- artManList -->	
-				<a ng-href="#/createRider"><button>Create Rider</button></a>
+				<a ng-href="#/createRider"><button class="logBtn">Create Rider</button></a>
 			</div> <!-- artManLook -->
 			
 

@@ -12,3 +12,27 @@
 .contact {
 	text-decoration: underline;
 }
+
+.artLink {
+	font-size: 2em;
+	text-shadow: 1px 1px 2px white;	
+	color: $primary-nav;
+}
+
+.editBtn {
+	background-color: $light-green;
+	color: white;
+	height: 36px;
+	padding: 0 30px;
+	border: 1px solid black;
+	border-radius: 10px;
+}
+
+.aml {
+	border: 1px solid black;
+	border-radius: 10px;	
+}
+
+.odd {
+	background-color: $art1-panel;
+}

@@ -2,6 +2,10 @@
 
 app.controller('ArtViewCtrl', function($scope, RidersFactory, $routeParams, UserFactory, $location, SpotifyFactory) {
 
+	// To allow !isAdmin to see artistSearch link results
+	$scope.currentPath = $location.path();
+	console.log("$scope.currentP", $scope.currentPath);
+
 	// Routeparams prop can be any namespace, just needs to match app.config
 	// Art Manager rider 
 	RidersFactory.getRiderFB($routeParams.riderId)
@@ -36,8 +40,6 @@ app.controller('ArtViewCtrl', function($scope, RidersFactory, $routeParams, User
 		console.log("viewArtCurrentUser", $scope.currentUser);
 	});
 
-
-
 	// Add venueUserId to rider and post to FB (for myArtist venue view)
 	$scope.addVenToRider = function(venueUserId) {
 		// console.log("venueUserId", venueUserId);
@@ -47,5 +49,11 @@ app.controller('ArtViewCtrl', function($scope, RidersFactory, $routeParams, User
 			$location.url('/myArtists');
 		});
 	};
+
+	// if venrider has vuid don't show the button
+	// $scope.showVenBtn = function() {
+	// 	$scope.venueAdded = $scope.currentVenRider.vuid !== '';
+	// 	return !$scope.currentUser.isAdmin && $scope.venueAdded;
+	// }
 
 });

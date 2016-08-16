@@ -27,7 +27,7 @@
         <div>{{currentVenRider.tickets}}</div>          
       </div>
 
-      <div class="artManView" ng-show="currentUser.isAdmin">
+      <div class="artManView" ng-show="currentUser.isAdmin || currentPath === #/viewArt/{{rider.id}}">
         <div>{{currentRider.name}}</div>
         <!-- Put a class on this to manage size -->
         <img ng-src="{{currentArtist.artists.items[0].images[1].url}}">
