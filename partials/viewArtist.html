@@ -2,13 +2,14 @@
 	<div data-ng-include="'partials/nav.html'"></div>
   <div class="container">    
     <div id="read">
-      <h3>Artist View</h3>
+      <h3 class="header">Artist View</h3>
       <!-- <div class="row"> -->
 
       <div class="venueView" ng-show="!currentUser.isAdmin">
         <div>{{currentVenRider.name}}</div>
         <!-- Put a class on this to manage size -->
-        <img ng-src="{{currentVenArtist.artists.items[0].images[1].url}}">        
+        <!-- <img ng-src="{{currentVenArtist.artists.items[0].images[1].url}}">         -->
+        <!-- <img ng-src="{{currentArtist.artists.items[0].images[1].url}}"> -->
         <div>{{currentVenRider.genre}}</div>
         <div>{{currentVenRider.riderDate}}</div>
         <div>{{currentVenRider.tourContact}}</div>
@@ -28,25 +29,25 @@
       </div>
 
       <div class="artManView" ng-show="currentUser.isAdmin || currentPath === #/viewArt/{{rider.id}}">
-        <div>{{currentRider.name}}</div>
+        <div>Artist: {{currentRider.name}}</div>
         <!-- Put a class on this to manage size -->
-        <img ng-src="{{currentArtist.artists.items[0].images[1].url}}">
-        <div>{{currentRider.genre}}</div>
-        <div>{{currentRider.riderDate}}</div>
-        <div>{{currentRider.tourContact}}</div>
-        <div>{{currentRider.phone}}</div>
-        <div>{{currentRider.email}}</div>
-        <div>{{currentRider.lodging}}</div>
-        <div>{{currentRider.backline}}</div>
-        <div>{{currentRider.audio}}</div>
-        <div>{{currentRider.lighting}}</div>
-        <div>{{currentRider.stage}}</div>
-        <div>{{currentRider.schedule}}</div> 
-        <div>{{currentRider.showRun}}</div>
-        <div>{{currentRider.dressingRoom}}</div>
-        <div>{{currentRider.catering}}</div>
-        <div>{{currentRider.security}}</div>
-        <div>{{currentRider.tickets}}</div>                
+        <!-- <img ng-src="{{currentArtist.artists.items[0].images[1].url}}"> -->
+        <div>Genre: {{currentRider.genre}}</div>
+        <div>Date: {{currentRider.riderDate}}</div>
+        <div>Tour Contact:{{currentRider.tourContact}}</div>
+        <div>Phone: {{currentRider.phone}}</div>
+        <div>Email: {{currentRider.email}}</div>
+        <div>Lodging: {{currentRider.lodging}}</div>
+        <div>Backline: {{currentRider.backline}}</div>
+        <div>Audio: {{currentRider.audio}}</div>
+        <div>Lighting: {{currentRider.lighting}}</div>
+        <div>Stage: {{currentRider.stage}}</div>
+        <div>Schedule: {{currentRider.schedule}}</div>
+        <div>Show Run: {{currentRider.showRun}}</div>
+        <div>Dressing Room: {{currentRider.dressingRoom}}</div>
+        <div>Catering: {{currentRider.catering}}</div>
+        <div>Security: {{currentRider.security}}</div>
+        <div>Tickets: {{currentRider.tickets}}</div>                
       </div>
 
         <!-- Possibly move this to top -->

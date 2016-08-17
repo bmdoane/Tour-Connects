@@ -6,7 +6,7 @@
 
 <!-- THIS IS THE ARTIST CREATE FORM -->
     <div id="create" ng-show="currentUser.isAdmin">
-      <h3>Create Rider</h3>
+      <h3 class="header">Create Rider</h3>
       <div class="row">
       <form class="col s12" name="editForm">
         <div class="row">
@@ -106,8 +106,10 @@
           </div>
         </div>
 
-        <div>
-          <button ng-click="addRider()">Add Rider</button>                   
+        <div class="row">
+          <div class="col s12 center"> 
+            <button class="logBtn addBtn" ng-click="addRider()">Add Rider</button>
+          </div>                     
         </div>
 
       </form>
