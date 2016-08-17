@@ -1,0 +1,42 @@
+@import "../components/colors";
+
+.amc {
+	border: 1px solid black;
+	border-radius: 10px;
+	color: $primary-nav;
+	background: rgba(88, 143, 139,.4);
+	height: 175px;
+	margin: 20px 0 0 0;
+}
+
+.contact {
+	text-decoration: underline;
+}
+
+.create {
+	padding-top: 15px !important;
+}
+
+.artLink {
+	font-size: 2em;
+	text-shadow: 1px 1px 2px white;	
+	color: $primary-nav;
+}
+
+.artBtn {
+	background-color: $light-green;
+	color: white;
+	height: 36px;
+	padding: 0 30px;
+	border: 1px solid black;
+	border-radius: 10px;
+}
+
+.list {
+	border: 1px solid black;
+	border-radius: 10px;	
+}
+
+.odd {
+	background-color: $art1-panel;
+}

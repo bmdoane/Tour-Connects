@@ -24,26 +24,6 @@
 }
 
 /* Cards */
-.card-panel {
-	border: 1px solid black;
-	border-radius: 10px;
-	color: white;
-	background: rgba(0,0,0,.4);
-	height: 220px;
-	margin: 20px 0 0 0;
-}
-
-.log {
-	height: 250px;
-	margin: 0;
-}
-
-.nofx {
-	text-shadow: none;
-	margin: 0;
-	font-size: 2em;
-}
-
 .mission {
 	font-size: 2em;
 	color: white;
@@ -54,16 +34,34 @@
 	border-radius: 10px;
 	color: white;
 	background: rgba(0,0,0,.6);
+	height: 220px;
+	margin: 20px 0 0 0;
 }
 
 .mission p {
 	margin: 0;
 }
 
+.log {
+	border: 1px solid black;
+	border-radius: 10px;
+	color: white;
+	background: rgba(0,0,0,.6);
+	height: 250px;
+	margin: 0;
+}
+
+.nofx {
+	text-shadow: none;
+	margin: 0;
+	font-size: 2em;
+}
+
 .input-field {
 	height: 60px;
 }
 
+/* Buttons */
 .logBtns {
 	margin-top: 15px;
 }

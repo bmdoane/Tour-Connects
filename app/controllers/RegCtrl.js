@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('RegCtrl', function($scope, $location, AuthFactory, UserFactory) {
+app.controller('RegCtrl', function($scope, $location, AuthFactory, UserFactory, $anchorScroll, $timeout) {
 
 	// Establish new user object
 	$scope.newUser = {
@@ -13,6 +13,12 @@ app.controller('RegCtrl', function($scope, $location, AuthFactory, UserFactory) 
 		uid: "",
 		isAdmin: false
 	};
+
+	$timeout(function() {
+		$location.hash('navy')
+  	$anchorScroll(); // Read docs
+		$('#first_name').focus(); // Look at ng-focus - get jquery out
+	}, 50);	
 
 	$scope.save = function() {
 		console.log('cluck');
