@@ -6,26 +6,26 @@
       <!-- <div class="row"> -->
 
       <div class="venueView" ng-show="!currentUser.isAdmin">
-        <div>{{currentVenRider.name}}</div>
+        <div>Artist: {{currentVenRider.name}}</div>
         <!-- Put a class on this to manage size -->
         <!-- <img ng-src="{{currentVenArtist.artists.items[0].images[1].url}}">         -->
         <!-- <img ng-src="{{currentArtist.artists.items[0].images[1].url}}"> -->
-        <div>{{currentVenRider.genre}}</div>
-        <div>{{currentVenRider.riderDate}}</div>
-        <div>{{currentVenRider.tourContact}}</div>
-        <div>{{currentVenRider.phone}}</div>
-        <div>{{currentVenRider.email}}</div>
-        <div>{{currentVenRider.lodging}}</div>
-        <div>{{currentVenRider.backline}}</div>
-        <div>{{currentVenRider.audio}}</div>
-        <div>{{currentVenRider.lighting}}</div>
-        <div>{{currentVenRider.stage}}</div>
-        <div>{{currentVenRider.schedule}}</div> 
-        <div>{{currentVenRider.showRun}}</div>
-        <div>{{currentVenRider.dressingRoom}}</div>
-        <div>{{currentVenRider.catering}}</div>
-        <div>{{currentVenRider.security}}</div>
-        <div>{{currentVenRider.tickets}}</div>          
+        <div>Genre: {{currentVenRider.genre}}</div>
+        <div>Date: {{currentVenRider.riderDate}}</div>
+        <div>Tour Contact:{{currentVenRider.tourContact}}</div>
+        <div>Phone: {{currentVenRider.phone}}</div>
+        <div>Email: {{currentVenRider.email}}</div>
+        <div>Lodging: {{currentVenRider.lodging}}</div>
+        <div>Backline: {{currentVenRider.backline}}</div>
+        <div>Audio: {{currentVenRider.audio}}</div>
+        <div>Lighting: {{currentVenRider.lighting}}</div>
+        <div>Stage: {{currentVenRider.stage}}</div>
+        <div>Schedule: {{currentVenRider.schedule}}</div> 
+        <div>Show Run: {{currentVenRider.showRun}}</div>
+        <div>Dressing Room: {{currentVenRider.dressingRoom}}</div>
+        <div>Catering: {{currentVenRider.catering}}</div>
+        <div>Security: {{currentVenRider.security}}</div>
+        <div>Tickets: {{currentVenRider.tickets}}</div>          
       </div>
 
       <div class="artManView" ng-show="currentUser.isAdmin || currentPath === #/viewArt/{{rider.id}}">
