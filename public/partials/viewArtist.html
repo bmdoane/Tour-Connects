@@ -6,10 +6,11 @@
       <!-- <div class="row"> -->
 
       <div class="venueView" ng-show="!currentUser.isAdmin">
-        <div>Artist: {{currentVenRider.name}}</div>
+        <!-- Add Spotify Stuff with Materialize -->
         <!-- Put a class on this to manage size -->
         <!-- <img ng-src="{{currentVenArtist.artists.items[0].images[1].url}}">         -->
         <!-- <img ng-src="{{currentArtist.artists.items[0].images[1].url}}"> -->
+        <div>Artist: {{currentVenRider.name}}</div>
         <div>Genre: {{currentVenRider.genre}}</div>
         <div>Date: {{currentVenRider.riderDate}}</div>
         <div>Tour Contact:{{currentVenRider.tourContact}}</div>
@@ -28,7 +29,8 @@
         <div>Tickets: {{currentVenRider.tickets}}</div>          
       </div>
 
-      <div class="artManView" ng-show="currentUser.isAdmin || currentPath === #/viewArt/{{rider.id}}">
+<!--       <div class="artManView" ng-show="currentUser.isAdmin"> -->
+      <div class="artManView" ng-show="currentUser.isAdmin || currentPath === #/viewArt/{{rider.id}}">      
         <div>Artist: {{currentRider.name}}</div>
         <!-- Put a class on this to manage size -->
         <!-- <img ng-src="{{currentArtist.artists.items[0].images[1].url}}"> -->
@@ -52,11 +54,12 @@
 
         <!-- Possibly move this to top -->
         <!-- Hide this if in Venue list.  How?? -->
-        <!-- Show this button on !isAdmin viewArtist.html.   -->
-        <div ng-show="!currentUser.isAdmin">
-          <button ng-click="addVenToRider(currentUser.uid)">Add</button>
-        </div>
-      <!-- </div>  -->
-    </div>    
+
+        <!-- Hide if artist is in MyArtist Array -->
+      <div ng-show="!currentUser.isAdmin">
+        <button ng-click="addVenToRider(currentUser.uid)">Add</button>
+      </div>
+     
+    </div> <!-- Read  -->  
   </div> <!-- container -->
 </section>	
