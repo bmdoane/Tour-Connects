@@ -9,7 +9,7 @@ app.factory('SpotifyFactory', function($q, $http) {
 			let query = `q=${artist}&type=artist`;
 			$http.get(`https://api.spotify.com/v1/search?${query}`)
 			.success(function(artistObj) {
-				console.log("artistObj", artistObj);
+				// console.log("artistObj", artistObj);
 				resolve(artistObj);
 			})
 			.error(function(error) {

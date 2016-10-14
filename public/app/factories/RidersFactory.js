@@ -72,7 +72,7 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
     return $q(function(resolve, reject) {
       $http.get(`${FirebaseURL}/riders/${riderId}.json`)
       .success(function(riderObj) {
-        console.log("riderObj", riderObj);
+        console.log("RiderObj", riderObj);
         resolve(riderObj);
       })
       .error(function(error) {
@@ -86,7 +86,7 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
     return $q(function(resolve, reject) {
       $http.get(`${FirebaseURL}/venueRiders/${riderId}.json`)
       .success(function(riderObj) {
-        console.log("riderObj", riderObj);
+        console.log("VRiderObj", riderObj);
         resolve(riderObj);
       })
       .error(function(error) {

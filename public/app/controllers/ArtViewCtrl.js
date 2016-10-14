@@ -3,6 +3,7 @@
 app.controller('ArtViewCtrl', function($scope, RidersFactory, $routeParams, UserFactory, $location, SpotifyFactory) {
 
 	// To allow !isAdmin to see artistSearch link results
+	// Path should be a string
 	$scope.currentPath = $location.path();
 	console.log("$scope.currentP", $scope.currentPath);
 
@@ -10,12 +11,12 @@ app.controller('ArtViewCtrl', function($scope, RidersFactory, $routeParams, User
 	// Art Manager rider 
 	RidersFactory.getRiderFB($routeParams.riderId)
 	.then(function(riderObj) {
-		// console.log("ArtViewRiderObj", riderObj);
+		console.log("RiderObj", riderObj);
 		$scope.currentRider = riderObj;
 		// How can i get this out of here??
 		SpotifyFactory.addArtistInfo($scope.currentRider.name)
 		.then(function(artistDetails) {
-			console.log("artistDetails", artistDetails.artists.items[0].id);
+			//console.log("artistDetails", artistDetails.artists.items[0].id);
 			$scope.currentArtist = artistDetails;
 		});
 	});
@@ -23,11 +24,11 @@ app.controller('ArtViewCtrl', function($scope, RidersFactory, $routeParams, User
 	// Venue rider
 	RidersFactory.getVenueRider($routeParams.riderId)
 	.then(function(riderObj) {
-		// console.log("ArtViewRiderObj", riderObj);
+		console.log("VenRiderObj", riderObj);
 		$scope.currentVenRider = riderObj;
 		SpotifyFactory.addArtistInfo($scope.currentVenRider.name)
 		.then(function(artistDetails) {
-			console.log("artistDetails", artistDetails.artists.items[0].id);
+			//console.log("artistDetails", artistDetails.artists.items[0].id);
 			$scope.currentArtist = artistDetails;
 		});
 	});
