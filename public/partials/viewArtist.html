@@ -3,14 +3,14 @@
   <div class="container">    
     <div id="read">
       <h3 class="header">Artist View</h3>
-      <!-- <div class="row"> -->
 
-      <div class="venueView" ng-show="!currentUser.isAdmin">
+
+      <div id="venueView" ng-show="!currentUser.isAdmin">
         <!-- Add Spotify Stuff with Materialize -->
         <!-- Put a class on this to manage size -->
         <!-- <img ng-src="{{currentVenArtist.artists.items[0].images[1].url}}">         -->
         <!-- <img ng-src="{{currentArtist.artists.items[0].images[1].url}}"> -->
-        <div>Artist: {{currentVenRider.name}}</div>
+        <div>VenArtist: {{currentVenRider.name}}</div>
         <div>Genre: {{currentVenRider.genre}}</div>
         <div>Date: {{currentVenRider.riderDate}}</div>
         <div>Tour Contact:{{currentVenRider.tourContact}}</div>
@@ -29,10 +29,11 @@
         <div>Tickets: {{currentVenRider.tickets}}</div>          
       </div>
       <!-- Path is a string -->
-      <div class="artManView" ng-show="currentUser.isAdmin || currentPath === '#/viewArt/{{rider.id}}'">      
-        <div>Artist: {{currentRider.name}}</div>
+      <div id="artManView" ng-show="currentUser.isAdmin">      
+<!--       <div class="artManView" ng-show="currentUser.isAdmin || currentPath === '#/viewArt/{{rider.id}}'">   -->    
         <!-- Put a class on this to manage size -->
         <!-- <img ng-src="{{currentArtist.artists.items[0].images[1].url}}"> -->
+        <div>AMArtist: {{currentRider.name}}</div>
         <div>Genre: {{currentRider.genre}}</div>
         <div>Date: {{currentRider.riderDate}}</div>
         <div>Tour Contact:{{currentRider.tourContact}}</div>
