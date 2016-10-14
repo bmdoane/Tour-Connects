@@ -21,7 +21,7 @@ app.factory('AuthFactory', function() {
   };
 
   let setUser = function(id) {
-    console.log("id", id);
+    // console.log("id", id);
     currentUserId = id;
     // console.log(currentUserId, "currentUserId")
   };
