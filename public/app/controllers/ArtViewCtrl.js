@@ -14,14 +14,7 @@ app.controller('ArtViewCtrl', function($scope, RidersFactory, $routeParams, User
 		//	show viewArtist/artManView
 		// }
 
-	// To grab last item in array
-	// var last = arr.slice(-1)[0]	
 
-	let pathHistory = []
-  $rootScope.$on('$routeChangeSuccess', function() {
-    pathHistory.push($location.path());
-    console.log("pathHistory", pathHistory);
-  });
 
 	// Routeparams prop can be any namespace, just needs to match app.config
 	// Art Manager rider 

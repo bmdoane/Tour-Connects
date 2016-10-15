@@ -21,6 +21,21 @@ let isAuth = ($location) => new Promise((resolve, reject) => {
   }
 });
 
+// Placed in app.js to be active from start
+app.run(function($rootScope, $location) {
+
+	let pathHistory = []
+  $rootScope.$on('$routeChangeSuccess', function() {
+    pathHistory.push($location.path());
+    console.log("pathHistory", pathHistory);
+  // set this to $rootScope.variable to use in condition viewArtist
+	// To grab last item in array
+	$rootScope.lastPath = pathHistory.slice(-1)[0]
+	console.log("$rootScope.lastPath", $rootScope.lastPath);	
+  });
+
+})
+
 app.config(function($routeProvider) {
 
 	$routeProvider.
