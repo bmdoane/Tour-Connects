@@ -3,7 +3,6 @@
 const app = angular.module('Tour-Connects', ['ngRoute', 'ngAnimate'])
 .constant('FirebaseURL', "https://tourconnectstwo.firebaseio.com");
 
-
 let isAuth = ($location) => new Promise((resolve, reject) => {
 	// console.log("hey");
 	let user = firebase.auth().currentUser;
@@ -28,10 +27,10 @@ app.run(function($rootScope, $location) {
   $rootScope.$on('$routeChangeSuccess', function() {
     pathHistory.push($location.path());
     console.log("pathHistory", pathHistory);
-  // set this to $rootScope.variable to use in condition viewArtist
-	// To grab last item in array
-	$rootScope.lastPath = pathHistory.slice(-1)[0]
-	console.log("$rootScope.lastPath", $rootScope.lastPath);	
+  // set this to $rootScope.variable to use in condition for viewArtist
+	// Grab the second last item in pathHistory array
+	$rootScope.previousPath = pathHistory.slice(-2, -1)[0]
+	console.log("$rootScope.previousPath", $rootScope.previousPath);	
   });
 
 })

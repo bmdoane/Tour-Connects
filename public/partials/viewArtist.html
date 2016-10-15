@@ -5,7 +5,7 @@
       <h3 class="header">Artist View</h3>
 
 
-      <div id="venueView" ng-show="!currentUser.isAdmin">
+      <div id="venueView" ng-show="!currentUser.isAdmin && previousPath === '/myArtists'">
         <!-- Add Spotify Stuff with Materialize -->
         <!-- Put a class on this to manage size -->
         <!-- <img ng-src="{{currentVenArtist.artists.items[0].images[1].url}}">         -->
@@ -29,8 +29,8 @@
         <div>Tickets: {{currentVenRider.tickets}}</div>          
       </div>
       <!-- Path is a string -->
-      <div id="artManView" ng-show="currentUser.isAdmin">      
-<!--       <div class="artManView" ng-show="currentUser.isAdmin || currentPath === '#/viewArt/{{rider.id}}'">   -->    
+      <!-- <div id="artManView" ng-show="currentUser.isAdmin">       -->
+      <div class="artManView" ng-show="currentUser.isAdmin || previousPath === '/searchArt'">      
         <!-- Put a class on this to manage size -->
         <!-- <img ng-src="{{currentArtist.artists.items[0].images[1].url}}"> -->
         <div>AMArtist: {{currentRider.name}}</div>
