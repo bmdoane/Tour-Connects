@@ -4,7 +4,7 @@ app.controller('ArtEditCtrl', function($scope, RidersFactory, $routeParams, $loc
 
 	RidersFactory.getRiderFB($routeParams.riderId)
 	.then(function(riderObj) {
-		console.log("editRiderObj", riderObj);
+		// console.log("editRiderObj", riderObj);
 		$scope.currentRider = riderObj;
 	});
 
@@ -12,7 +12,7 @@ app.controller('ArtEditCtrl', function($scope, RidersFactory, $routeParams, $loc
 	$scope.update = function() {
 		RidersFactory.editRiderFB($scope.currentRider, $routeParams.riderId)
 		.then(function(result) {
-			console.log("update result", result);
+			// console.log("update result", result);
 			$location.url('/myArtists');
 		});
 	};
@@ -21,7 +21,7 @@ app.controller('ArtEditCtrl', function($scope, RidersFactory, $routeParams, $loc
 		console.log("$routeParams.riderId", $routeParams.riderId);
 		RidersFactory.deleteRiderFB($routeParams.riderId)
 		.then(function(result) {
-			console.log("delete result", result);
+			// console.log("delete result", result);
 			$location.url('/myArtists');
 		});
 	};		

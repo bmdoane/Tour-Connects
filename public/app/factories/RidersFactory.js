@@ -31,7 +31,7 @@ app.factory('RidersFactory', function(FirebaseURL, $q, $http, AuthFactory) {
     return $q(function(resolve, reject) {
       $http.get(`${FirebaseURL}/venueRiders.json?orderBy="vuid"&equalTo="${venueUserId}"`)
       .success(function(venueRidersObj) {
-        console.log("venueRidersObj", venueRidersObj);
+        // console.log("venueRidersObj", venueRidersObj);
         let venueRidersCollection = venueRidersObj;
         Object.keys(venueRidersCollection).forEach(function(key) {
           venueRidersCollection[key].id = key;
