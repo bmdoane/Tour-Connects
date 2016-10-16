@@ -28,9 +28,10 @@
         <div>Security: {{currentVenRider.security}}</div>
         <div>Tickets: {{currentVenRider.tickets}}</div>          
       </div>
+
       <!-- Path is a string -->
-      <!-- <div id="artManView" ng-show="currentUser.isAdmin">       -->
-      <div class="artManView" ng-show="currentUser.isAdmin || previousPath === '/searchArt'">      
+      <!-- <div class="artManView" ng-show="currentUser.isAdmin || previousPath === '/searchArt'">  --> 
+      <div class="artManView" ng-show="currentUser.isAdmin || previousPath === '/searchArt'">     
         <!-- Put a class on this to manage size -->
         <!-- <img ng-src="{{currentArtist.artists.items[0].images[1].url}}"> -->
         <div>AMArtist: {{currentRider.name}}</div>
@@ -52,10 +53,8 @@
         <div>Tickets: {{currentRider.tickets}}</div>                
       </div>
 
-        <!-- Possibly move this to top -->
-        <!-- Hide this if in Venue list.  How?? -->
-
-        <!-- Hide if artist is in MyArtist Array -->
+      <!-- Possibly move this to top -->
+      <!-- This sorta works, button flashes -->
       <div ng-show="!currentUser.isAdmin">
         <button ng-click="addVenToRider(currentUser.uid)">Add</button>
       </div>

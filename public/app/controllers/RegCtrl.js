@@ -21,7 +21,6 @@ app.controller('RegCtrl', function($scope, $location, AuthFactory, UserFactory, 
 	}, 50);	
 
 	$scope.save = function() {
-		console.log('cluck');
 		AuthFactory.createWithEmail($scope.newUser.email, $scope.password)
 		.then(function(result) {
 		// Result is the return of the promise with uid prop.  Its loggable.

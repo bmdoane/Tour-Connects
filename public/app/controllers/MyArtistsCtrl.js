@@ -16,7 +16,7 @@ app.controller('MyArtistsCtrl', function($scope, UserFactory, RidersFactory, $ti
 	$timeout(function() {
 		RidersFactory.getVenueRiders()
 		.then(function(userVenueCollection) {
-			console.log("userVenueCollection", userVenueCollection);
+			// console.log("userVenueCollection", userVenueCollection);
 			$scope.venueRiders = userVenueCollection;
 		});
 	}, 50);
@@ -33,14 +33,14 @@ app.controller('MyArtistsCtrl', function($scope, UserFactory, RidersFactory, $ti
 
 	// This is navigating to artistView for split second before refreshing myArtists
 	$scope.deleteVenue = function(riderId) {
-		console.log("DV is happening");
-		console.log("riderId", riderId);
+		//console.log("DV is happening");
+		//console.log("riderId", riderId);
 		// Delete does not return obj, so you need to call getter
 		RidersFactory.deleteVenueRider(riderId)
 		.then(function() {
 			RidersFactory.getVenueRiders()
 			.then(function(userVenueRiders) {
-				console.log("userVenueRiders", userVenueRiders);
+				//console.log("userVenueRiders", userVenueRiders);
 				$scope.venueRiders = userVenueRiders;			
 			});
 			// $location.url('/myArtists');

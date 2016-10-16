@@ -27,12 +27,9 @@ app.controller('ArtCreateCtrl', function($scope, $location, AuthFactory, RidersF
 		vuid: ""
 	};
 
-	// Think I need to have a promise return where I push rider into Art Man Array
 	$scope.addRider = function() {
-		console.log("addRiderFired");
 		// add user id to new Board obj
 		$scope.rider.uid = AuthFactory.getUser().uid;
-		// run post function to firebase
 		RidersFactory.postRiderFB($scope.rider)
 		.then(function() {
 			$location.url('/myArtists');
@@ -42,9 +39,9 @@ app.controller('ArtCreateCtrl', function($scope, $location, AuthFactory, RidersF
 	// For isAdmin property on currentUser
 	UserFactory.getUserDetails()
 	.then(function(userDetails) {
-		console.log("userDetails", userDetails);
+		// console.log("userDetails", userDetails);
 		$scope.currentUser = userDetails[0];
-		console.log("viewCreateCurrentUser", $scope.currentUser);
+		// console.log("viewCreateCurrentUser", $scope.currentUser);
 	});	
 
 });
